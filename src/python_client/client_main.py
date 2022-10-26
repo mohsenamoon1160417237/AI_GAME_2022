@@ -1,13 +1,14 @@
 import random
 from base import BaseAgent, Action
+from do_turn import Phase1
 
 
 class Agent(BaseAgent):
 
     def do_turn(self) -> Action:
-        return random.choice(
-            [Action.UP, Action.DOWN, Action.LEFT, Action.RIGHT, Action.DOWN_RIGHT, Action.DOWN_LEFT, Action.UP_LEFT,
-             Action.UP_RIGHT, Action.NOOP])
+        # phase1 = Phase1(self.grid_width, self.grid_width)
+        # return phase1.main()
+        return Action.NOOP
 
 
 if __name__ == '__main__':

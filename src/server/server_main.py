@@ -1,10 +1,15 @@
 import argparse
 import json
-from logics.game import Game, Map, Tile
-from logics.network import Socket
-from logics import Exceptions
 from pathlib import Path
-from logics.utils import bcolors
+
+from logics import (
+    Game,
+    Map,
+    Tile,
+    Socket,
+    Exceptions,
+    bcolors
+)
 
 
 def parse_args():

@@ -1,13 +1,14 @@
 import json
-
-from logics.map import Map, Tile
-from logics.agent import Agent
-from logics.actions import Actions
-import random
 import numpy as np
-from logics import Exceptions, game_rules
+import random
 from datetime import datetime
-from logics.utils import bcolors
+
+from .map import Map, Tile
+from .agent import Agent
+from .actions import Actions
+
+from . import Exceptions, game_rules
+from .utils import bcolors
 
 
 class Game:
