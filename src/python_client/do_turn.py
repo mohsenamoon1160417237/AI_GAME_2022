@@ -11,6 +11,9 @@ class Phase1:
         self.width = width
         self.prev_diamond = None
 
+    def createEnv(self):
+        return np.zeros(dtype=float, shape=(self.height, self.width))
+
     def calc_diamond_scores(self, diamond: str) -> int:
         if self.prev_diamond is None:
             if diamond == DIAMONDS['YELLOW_DIAMOND']:
@@ -55,7 +58,7 @@ class Phase1:
                 return 50
 
     def main(self):
-        # self.width
+        env = self.createEnv()
         return random.choice(
             [Action.UP, Action.DOWN, Action.LEFT, Action.RIGHT, Action.DOWN_RIGHT, Action.DOWN_LEFT, Action.UP_LEFT,
              Action.UP_RIGHT, Action.NOOP])
