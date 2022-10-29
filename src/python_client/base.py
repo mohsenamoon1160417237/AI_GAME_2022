@@ -73,6 +73,7 @@ class BaseAgent(metaclass=abc.ABCMeta):
     def play(self):
         if self.connection is None:
             self.connect()
+
         while True:
             data = read_utf(self.connection)
             if "finish!" in data:

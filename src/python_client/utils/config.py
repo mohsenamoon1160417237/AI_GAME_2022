@@ -1,6 +1,6 @@
-DIAMONDS = {
-    "YELLOW_DIAMOND": "1",
-    "RED_DIAMOND": "3",
-    "GREEN_DIAMOND": "2",
-    "BLUE_DIAMOND": "4"
+GEMS = {
+    "YELLOW_GEM": "1",
+    "RED_GEM": "3",
+    "GREEN_GEM": "2",
+    "BLUE_GEM": "4"
 }
