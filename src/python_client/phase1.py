@@ -1,5 +1,5 @@
 from base import Action
-from utils import GEMS
+from utils.config import GEMS
 
 import random
 import numpy as np
@@ -13,6 +13,14 @@ class Phase1:
         self.map = np.array(self.agent.grid)
         if 'gem_indexes' not in self.agent.__dict__:
             self.agent.gem_indexes = self.make_gem_indexes()
+        if 'wall_indexes' not in self.agent.__dict__:
+            self.agent.wall_indexes = self.make_wall_indexes()
+        if 'key_indexes' not in self.agent.__dict__:
+            self.agent.key_indexes = self.make_key_indexes()
+        if 'door_indexes' not in self.agent.__dict__:
+            self.agent.door_indexes = self.make_door_indexes()
+        if 'barbed_indexes' not in self.agent.__dict__:
+            self.agent.barbed_indexes = self.make_barbed_indexes()
         if 'gem_distances' not in self.agent.__dict__:
             self.agent.gem_distances = self.make_gem_distances()
         if 'prev_gem' not in self.agent.__dict__:
@@ -91,6 +99,74 @@ class Phase1:
 
         return gem_indexes
 
+    def make_wall_indexes(self) -> np.array:
+        agent_index = np.empty((0, 2), dtype=int)
+        wall_indexes = np.empty((0, 2), dtype=int)  # row, col, gem_number
+
+        for row in range(self.map.shape[0]):
+            agent = np.where(self.map[row] == 'EA')
+            if len(agent[0]) != 0:
+                agent_index = np.vstack((agent_index, [row, agent[0][0]]))
+                self.agent.agent_index = agent_index
+            new_arr = np.where(self.map[row] == 'W')
+            for col in new_arr[0]:
+                wall_indexes = np.vstack((wall_indexes, [row, col]))
+        return wall_indexes
+    def make_key_indexes(self) -> np.array:
+        agent_index = np.empty((0, 2), dtype=int)
+        key_indexes = np.empty((0, 3), dtype=int)  # row, col, gem_number
+
+        for row in range(self.map.shape[0]):
+            agent = np.where(self.map[row] == 'EA')
+            if len(agent[0]) != 0:
+                agent_index = np.vstack((agent_index, [row, agent[0][0]]))
+                self.agent.agent_index = agent_index
+            new_arr = np.where(self.map[row] == 'r')
+            for col in new_arr[0]:
+                key_indexes = np.vstack((key_indexes, [row, col, 'r']))
+            new_arr = np.where(self.map[row] == 'g')
+            for col in new_arr[0]:
+                key_indexes = np.vstack((key_indexes, [row, col, 'g']))
+            new_arr = np.where(self.map[row] == 'y')
+            for col in new_arr[0]:
+                key_indexes = np.vstack((key_indexes, [row, col, 'y']))
+
+        return key_indexes
+
+    def make_door_indexes(self) -> np.array:
+        agent_index = np.empty((0, 2), dtype=int)
+        door_indexes = np.empty((0, 3), dtype=int)  # row, col, gem_number
+
+        for row in range(self.map.shape[0]):
+            agent = np.where(self.map[row] == 'EA')
+            if len(agent[0]) != 0:
+                agent_index = np.vstack((agent_index, [row, agent[0][0]]))
+                self.agent.agent_index = agent_index
+            new_arr = np.where(self.map[row] == 'R')
+            for col in new_arr[0]:
+                door_indexes = np.vstack((door_indexes, [row, col, 'R']))
+            new_arr = np.where(self.map[row] == 'G')
+            for col in new_arr[0]:
+                door_indexes = np.vstack((door_indexes, [row, col, 'G']))
+            new_arr = np.where(self.map[row] == 'Y')
+            for col in new_arr[0]:
+                door_indexes = np.vstack((door_indexes, [row, col, 'Y']))
+
+        return door_indexes
+
+    def make_barbed_indexes(self) -> np.array:
+        agent_index = np.empty((0, 2), dtype=int)
+        barbed_indexes = np.empty((0, 2), dtype=int)  # row, col, gem_number
+
+        for row in range(self.map.shape[0]):
+            agent = np.where(self.map[row] == 'EA')
+            if len(agent[0]) != 0:
+                agent_index = np.vstack((agent_index, [row, agent[0][0]]))
+                self.agent.agent_index = agent_index
+            new_arr = np.where(self.map[row] == '*')
+            for col in new_arr[0]:
+                barbed_indexes = np.vstack((barbed_indexes, [row, col]))
+        return barbed_indexes
     # Will be called only once.
     def make_gem_distances(self) -> np.array:
         distances = np.array([])
