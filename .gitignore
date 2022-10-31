@@ -1,7 +1,7 @@
 .idea
 validations
 venv/
-server/game_logs/*.json
+server/game_logs
 __init__.py
 __pycache__
 test.py
