@@ -1,3 +1,4 @@
+from operator import ne
 from base import Action
 from utils.config import GEMS
 
@@ -101,7 +102,7 @@ class Phase1:
 
     def make_wall_indexes(self) -> np.array:
         agent_index = np.empty((0, 2), dtype=int)
-        wall_indexes = np.empty((0, 2), dtype=int)  # row, col, gem_number
+        wall_indexes = np.empty((0, 2), dtype=int)  # row, col
 
         for row in range(self.map.shape[0]):
             agent = np.where(self.map[row] == 'EA')
@@ -114,7 +115,7 @@ class Phase1:
         return wall_indexes
     def make_key_indexes(self) -> np.array:
         agent_index = np.empty((0, 2), dtype=int)
-        key_indexes = np.empty((0, 3), dtype=int)  # row, col, gem_number
+        key_indexes = np.empty((0, 3), dtype=int)  # row, col, key_color
 
         for row in range(self.map.shape[0]):
             agent = np.where(self.map[row] == 'EA')
@@ -135,7 +136,7 @@ class Phase1:
 
     def make_door_indexes(self) -> np.array:
         agent_index = np.empty((0, 2), dtype=int)
-        door_indexes = np.empty((0, 3), dtype=int)  # row, col, gem_number
+        door_indexes = np.empty((0, 3), dtype=int)  # row, col, door_color
 
         for row in range(self.map.shape[0]):
             agent = np.where(self.map[row] == 'EA')
@@ -156,7 +157,7 @@ class Phase1:
 
     def make_barbed_indexes(self) -> np.array:
         agent_index = np.empty((0, 2), dtype=int)
-        barbed_indexes = np.empty((0, 2), dtype=int)  # row, col, gem_number
+        barbed_indexes = np.empty((0, 2), dtype=int)  # row, col
 
         for row in range(self.map.shape[0]):
             agent = np.where(self.map[row] == 'EA')
@@ -181,8 +182,41 @@ class Phase1:
 
         sorted_distances = np.sort(distances)
         return sorted_distances
+    def calc_neighbor(self , i_agent , j_agent) -> np.array :
+        print("yess")
+        neighbor = np.zeros((3,3), dtype=int)
+
+        for i in range(i_agent-1 , i_agent+2):
+            for j in range(j_agent-1,j_agent+2):
+                if self.map[i][j] == 'E' :
+                    if(i == i_agent) or (j == j_agent):
+                        neighbor[i][j] += -1
+                    else :
+                        neighbor[i][j] += -2
+                if self.map[i][j] == 'W' :
+                    neighbor[i][j] += -10000
+                if self.map[i][j] == 'g' or self.map[i][j] == 'r' or self.map[i][j] == 'y' :
+                    neighbor[i][j] += 10
+                if self.map[i][j] == '*' :
+                    neighbor[i][j] += -20
+                if self.map[i][j] == 'G' or self.map[i][j] == 'R' or self.map[i][j] == 'Y' :
+                    # if we have key : 
+                    neighbor[i][j] += 10
+                    # we dont have key :
+                    neighbor[i][j] += -10000    
+
+
+                                                 
+
+
+
+        return neighbor
+        
+
 
     def main(self):
+        self.calc_neighbor(self.agent.agent_index[0][0]  , self.agent.agent_index[0][1])
+        
         return Action.NOOP
         # return random.choice(
         #     [Action.DOWN, Action.DOWN_RIGHT, Action.DOWN_LEFT, Action.RIGHT, Action.LEFT, Action.UP_LEFT,
