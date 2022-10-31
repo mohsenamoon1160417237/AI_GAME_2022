@@ -1,3 +1,6 @@
+from array import array
+from textwrap import indent
+from unittest import removeResult
 import numpy as np
 
 from base import Action
@@ -37,6 +40,74 @@ class Phase1:
 
     def create_score_env(self):
         return np.zeros(dtype=int, shape=(self.height, self.width))
+        
+    def arrange_gem(self , gem_group , best_arrangement_of_gem) -> list :
+        if(len(gem_group) == 0  ):
+            return best_arrangement_of_gem
+        else:
+            list = []
+            # list of tuple :
+            # first item in tuple is color of gem and second item is score of gem 
+            if "1" in gem_group :
+                list.append(("1" ,self.calc_gems_scores('1')))
+            if "2" in gem_group :
+                list.append(("2" , self.calc_gems_scores('2')))
+            if "3" in gem_group :
+                list.append(("3" ,self.calc_gems_scores('3')))
+            if "4" in gem_group :
+                list.append(("4" , self.calc_gems_scores('4')))
+            list.sort(key=lambda a: a[1] , reverse=True)
+            print("list",list[0][0])
+            self.agent.prev_gem = list[0][0]
+            best_arrangement_of_gem[0] += list[0][1]
+            best_arrangement_of_gem.append(self.agent.prev_gem)
+            gem_group.remove(self.agent.prev_gem)
+            print(best_arrangement_of_gem)
+            print(gem_group)
+
+            
+    
+            self.arrange_gem( gem_group , best_arrangement_of_gem)
+
+
+
+    def find_best_area(self ) -> np.array:
+        for group in self.agent.gem_groups :
+            list = []
+            arrangement_of_gem = np.zeros((1, len(group)+1), dtype=int)
+            group_temp = np.copy(group)
+            if(len(np.where(group_temp == '1')) != 0 ):
+                # first time agent eats gem 1(yellow) :
+                self.agent.prev_gem = '1'
+                list.append( "1" , self.arrange_gem(group_temp , arrangement_of_gem)[0][-1]+50)
+            if(len(np.where(group_temp == '2')) != 0 ):
+                # first time agent eats gem 2(green) :
+                self.agent.prev_gem = '2'
+                list.append( "2" , self.arrange_gem(group_temp , arrangement_of_gem)[0][-1])
+
+            if(len(np.where(group_temp == '3')) != 0 ):
+                # first time agent eats gem 3(red) :
+                self.agent.prev_gem = '3'
+                list.append( "3" , self.arrange_gem(group_temp , arrangement_of_gem)[0][-1])
+            if(len(np.where(group_temp == '4')) != 0 ):
+                # first time agent eats gem 4(blue) :
+                self.agent.prev_gem = '4'
+                list.append( "4" , self.arrange_gem(group_temp , arrangement_of_gem)[0][-1])
+            
+            # find which key eat for the first time :
+            list.sort(key=lambda a: a[1] , reverse=True)
+            self.agent.prev_gem = list[0][0]
+
+            # find best arrangement of gem and save total score of them on first element
+            arrangement_of_gem = np.empty((1, len(group)+1), dtype=int)
+            best_arrangement_of_gem = self.arrange_gem(group , arrangement_of_gem)
+            
+            
+        # self.agent.gem_groups.sort(key=lambda a: a[0] , reverse=True)
+
+            
+        return arrangement_of_gem
+
 
     def calc_gems_scores(self, gem: str) -> int:
         prev_gem = self.agent.prev_gem
@@ -174,23 +245,33 @@ class Phase1:
         sorted_distances = np.sort(distances)
         return [sorted_distances, distances]
 
+
+
+#calc neghbor is done except color home
     def calc_neighbor(self, i_agent, j_agent) -> np.array:
         # calculate cost fron initial state to next state
         # A* function : h(n) = f(n) + g(n)
         # this method is function f(n) in heuristic
         print("yess")
         neighbor = np.zeros((3, 3), dtype=int)
-
+        x =  0
+        print(self.width)
         for i in range(i_agent - 1, i_agent + 2):
+            y = 0 
             for j in range(j_agent - 1, j_agent + 2):
-                if i != -1 and j != -1 and i != self.width and j != self.height :
+                if i == i_agent and j == j_agent :
+                    neighbor[x][y] += 0
+
+                elif i != -1 and j != -1 and j != self.width and i != self.height :
                     if self.map[i][j] == 'E':
-                        if (i == i_agent) or (j == j_agent):
-                            neighbor[i][j] += -1
+                        if (i == i_agent) :
+                            neighbor[x][y] += -1
+                        elif (j == j_agent) :
+                            neighbor[x][y] += -1
                         else:
-                            neighbor[i][j] += -2
+                            neighbor[x][y] += -2
                     elif self.map[i][j] == 'W':
-                        neighbor[i][j] += -10000
+                        neighbor[x][y] += -10000
                     elif self.map[i][j] == 'g' or self.map[i][j] == 'r' or self.map[i][j] == 'y':
                         # its key 
                         if self.map[i][j] == 'g' :
@@ -199,32 +280,35 @@ class Phase1:
                             self.agent.red_key_number += 1
                         elif self.map[i][j] == 'y' :
                             self.agent.yellow_key_number += 1                                       
-                        neighbor[i][j] += 10
+                        neighbor[x][y] += 10
                         self.map[i][j] = 'E'
                     elif self.map[i][j] == '*':
-                        neighbor[i][j] += -20
+                        neighbor[x][y] += -20
                     elif self.map[i][j] == 'G' or self.map[i][j] == 'R' or self.map[i][j] == 'Y':
                         # its lock
                         # if we have key : 
                         if self.map[i][j] == 'G' :
                             if self.agent.green_key_number >0 :
                                 self.agent.green_key_number -=1
-                                neighbor[i][j] += 10
+                                neighbor[x][y] += 10
                                 self.map[i][j] = 'E'
                         elif self.map[i][j] == 'R' :
                             if self.agent.red_key_number >0 :
                                 self.agent.red_key_number -=1
-                                neighbor[i][j] += 10
+                                neighbor[x][y] += 10
                                 self.map[i][j] = 'E'
                         elif self.map[i][j] == 'Y' :
                             if self.agent.yellow_key_number >0 :
                                 self.agent.yellow_key_number -=1  
-                                neighbor[i][j] += 10
+                                neighbor[x][y] += 10
                                 self.map[i][j] = 'E'
                         else:                    
                         # we dont have key :
-                            neighbor[i][j] += -10000
-
+                            neighbor[x][y] += -10000
+                else:
+                    neighbor[x][y] += -10000
+                y +=1
+            x+=1
         return neighbor
 
     def search_nearby_cells(self, cell: np.array, new_gem_indexes: np.array, gem_group: np.array) -> np.array:
@@ -298,7 +382,10 @@ class Phase1:
             gem_groups = self.search_gems(index, gem_group, searched_gems, gem_groups, gem_indexes)
 
     def main(self):
-        # self.calc_neighbor(self.agent.agent_index[0][0], self.agent.agent_index[0][1])
+        # print(self.calc_neighbor(self.agent.agent_index[0][0], self.agent.agent_index[0][1]))
+        self.agent.prev_gem = None
+        print("f",self.arrange_gem( [ "1" , "2" , "3" , "1" , "2"] , [0]))
+        # self.find_best_area()
         return Action.NOOP
         # return random.choice(
         #     [Action.DOWN, Action.DOWN_RIGHT, Action.DOWN_LEFT, Action.RIGHT, Action.LEFT, Action.UP_LEFT,
