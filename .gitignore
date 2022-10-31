@@ -6,3 +6,4 @@ __init__.py
 __pycache__
 test.py
 server/outs.txt
+src/server/game_logs/*.json

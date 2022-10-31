@@ -27,6 +27,12 @@ class Phase1:
             self.agent.gem_groups = self.group_gems()
         if 'prev_gem' not in self.agent.__dict__:
             self.agent.prev_gem = None
+        if 'green_key_number' not in self.agent.__dict__:
+            self.agent.green_key_number = 0
+        if 'yellow_key_number' not in self.agent.__dict__:
+            self.agent.yellow_key_number = 0
+        if 'red_key_number' not in self.agent.__dict__:
+            self.agent.red_key_number = 0           
         self.scores_env = self.create_score_env()
 
     def create_score_env(self):
@@ -169,27 +175,55 @@ class Phase1:
         return [sorted_distances, distances]
 
     def calc_neighbor(self, i_agent, j_agent) -> np.array:
+        # calculate cost fron initial state to next state
+        # A* function : h(n) = f(n) + g(n)
+        # this method is function f(n) in heuristic
         print("yess")
         neighbor = np.zeros((3, 3), dtype=int)
 
         for i in range(i_agent - 1, i_agent + 2):
             for j in range(j_agent - 1, j_agent + 2):
-                if self.map[i][j] == 'E':
-                    if (i == i_agent) or (j == j_agent):
-                        neighbor[i][j] += -1
-                    else:
-                        neighbor[i][j] += -2
-                if self.map[i][j] == 'W':
-                    neighbor[i][j] += -10000
-                if self.map[i][j] == 'g' or self.map[i][j] == 'r' or self.map[i][j] == 'y':
-                    neighbor[i][j] += 10
-                if self.map[i][j] == '*':
-                    neighbor[i][j] += -20
-                if self.map[i][j] == 'G' or self.map[i][j] == 'R' or self.map[i][j] == 'Y':
-                    # if we have key : 
-                    neighbor[i][j] += 10
-                    # we dont have key :
-                    neighbor[i][j] += -10000
+                if i != -1 and j != -1 and i != self.width and j != self.height :
+                    if self.map[i][j] == 'E':
+                        if (i == i_agent) or (j == j_agent):
+                            neighbor[i][j] += -1
+                        else:
+                            neighbor[i][j] += -2
+                    elif self.map[i][j] == 'W':
+                        neighbor[i][j] += -10000
+                    elif self.map[i][j] == 'g' or self.map[i][j] == 'r' or self.map[i][j] == 'y':
+                        # its key 
+                        if self.map[i][j] == 'g' :
+                            self.agent.green_key_number += 1
+                        elif self.map[i][j] == 'r' :
+                            self.agent.red_key_number += 1
+                        elif self.map[i][j] == 'y' :
+                            self.agent.yellow_key_number += 1                                       
+                        neighbor[i][j] += 10
+                        self.map[i][j] = 'E'
+                    elif self.map[i][j] == '*':
+                        neighbor[i][j] += -20
+                    elif self.map[i][j] == 'G' or self.map[i][j] == 'R' or self.map[i][j] == 'Y':
+                        # its lock
+                        # if we have key : 
+                        if self.map[i][j] == 'G' :
+                            if self.agent.green_key_number >0 :
+                                self.agent.green_key_number -=1
+                                neighbor[i][j] += 10
+                                self.map[i][j] = 'E'
+                        elif self.map[i][j] == 'R' :
+                            if self.agent.red_key_number >0 :
+                                self.agent.red_key_number -=1
+                                neighbor[i][j] += 10
+                                self.map[i][j] = 'E'
+                        elif self.map[i][j] == 'Y' :
+                            if self.agent.yellow_key_number >0 :
+                                self.agent.yellow_key_number -=1  
+                                neighbor[i][j] += 10
+                                self.map[i][j] = 'E'
+                        else:                    
+                        # we dont have key :
+                            neighbor[i][j] += -10000
 
         return neighbor
 
