@@ -10,19 +10,20 @@ class Phase1:
         self.height = self.agent.grid_height
         self.width = self.agent.grid_width
         self.map = np.array(self.agent.grid)
-        if 'gem_indexes' not in self.agent.__dict__:
+        if 'gem_indexes' not in self.agent.__dict__:  # int
             self.agent.gem_indexes = self.make_gem_indexes()
-        if 'wall_indexes' not in self.agent.__dict__:
+        if 'wall_indexes' not in self.agent.__dict__:  # int
             self.agent.wall_indexes = self.make_wall_indexes()
-        if 'key_indexes' not in self.agent.__dict__:
+        if 'key_indexes' not in self.agent.__dict__:  # str
             self.agent.key_indexes = self.make_key_indexes()
-        if 'door_indexes' not in self.agent.__dict__:
+        if 'door_indexes' not in self.agent.__dict__:  # str
             self.agent.door_indexes = self.make_door_indexes()
-        if 'barbed_indexes' not in self.agent.__dict__:
+        if 'barbed_indexes' not in self.agent.__dict__:  # int
             self.agent.barbed_indexes = self.make_barbed_indexes()
         if 'gem_distances' not in self.agent.__dict__ and 'sorted_gem_distances' not in self.agent.__dict__:
+            # float
             self.agent.sorted_gem_distances, self.agent.gem_distances = self.make_gem_distances()
-        if 'gem_groups' not in self.agent.__dict__:
+        if 'gem_groups' not in self.agent.__dict__:  # int
             self.agent.gem_groups = self.group_gems()
         if 'prev_gem' not in self.agent.__dict__:
             self.agent.prev_gem = None
