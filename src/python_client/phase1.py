@@ -44,6 +44,7 @@ class Phase1:
     def arrange_gem(self , gem_group , best_arrangement_of_gem) -> list :
         # gem_group is first arrange of gem 
         # best_arrangement_of_gem is best arrange of gem
+        # best_arrangement_of_gem is list that first element is total score and second element
         if(len(gem_group) != 0  ):
              
             list = []
@@ -79,9 +80,21 @@ class Phase1:
 
             self.agent.prev_gem = None                    
             best_arrange = self.arrange_gem( group[:, 2].tolist() , [0])
-            list.append((best_arrange[0] , best_arrange[1:] ))
+            first_gem_of_arrange = best_arrange[1]
+            index_of_first_gem_of_arrange=()
+            for i in range(0,group.shape[0]):
+                if int(group[i][2]) == int(first_gem_of_arrange) :
+                    index_of_first_gem_of_arrange = (group[i][0] , group[i][1])
+            list.append((best_arrange[0] , best_arrange[1:]  , index_of_first_gem_of_arrange))
         list.sort(key=lambda a: a[0] , reverse=True)            
         return list[0]
+    def calc_aim(self) :
+        score_of_area = self.find_best_area()[0]
+        arrange_of_area = self.find_best_area()[1]
+        index_of_first_gem = self.find_best_area()[2]
+        # print(index_of_first_gem)
+
+        return index_of_first_gem
 
 
     def calc_gems_scores(self, gem: str) -> int:
@@ -360,7 +373,7 @@ class Phase1:
         # print(self.calc_neighbor(self.agent.agent_index[0][0], self.agent.agent_index[0][1]))
         self.agent.prev_gem = None
         # print( "f",self.arrange_gem( ["1" ,"2" ,"2" , "3" , "1"], [0]))
-        print("f",self.find_best_area())
+        print("f",self.calc_aim())
         #self.find_best_area()
         return Action.NOOP
         # return random.choice(
