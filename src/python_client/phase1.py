@@ -40,73 +40,48 @@ class Phase1:
 
     def create_score_env(self):
         return np.zeros(dtype=int, shape=(self.height, self.width))
-        
+
     def arrange_gem(self , gem_group , best_arrangement_of_gem) -> list :
-        if(len(gem_group) == 0  ):
-            return best_arrangement_of_gem
-        else:
+        # gem_group is first arrange of gem 
+        # best_arrangement_of_gem is best arrange of gem
+        if(len(gem_group) != 0  ):
+             
             list = []
             # list of tuple :
             # first item in tuple is color of gem and second item is score of gem 
-            if "1" in gem_group :
+            if 1 in gem_group :
                 list.append(("1" ,self.calc_gems_scores('1')))
-            if "2" in gem_group :
+            if 2 in gem_group :
                 list.append(("2" , self.calc_gems_scores('2')))
-            if "3" in gem_group :
+            if 3 in gem_group :
                 list.append(("3" ,self.calc_gems_scores('3')))
-            if "4" in gem_group :
+            if 4 in gem_group :
                 list.append(("4" , self.calc_gems_scores('4')))
             list.sort(key=lambda a: a[1] , reverse=True)
-            print("list",list[0][0])
-            self.agent.prev_gem = list[0][0]
+
+            self.agent.prev_gem = str(list[0][0])
             best_arrangement_of_gem[0] += list[0][1]
             best_arrangement_of_gem.append(self.agent.prev_gem)
-            gem_group.remove(self.agent.prev_gem)
-            print(best_arrangement_of_gem)
-            print(gem_group)
+            gem_group.remove(int(self.agent.prev_gem))
+   
+            best_arrangement_of_gem = self.arrange_gem( gem_group , best_arrangement_of_gem)
+            if best_arrangement_of_gem is not None:
+                return best_arrangement_of_gem
+        else:
+            return best_arrangement_of_gem
 
-            
-    
-            self.arrange_gem( gem_group , best_arrangement_of_gem)
 
 
-
-    def find_best_area(self ) -> np.array:
+    def find_best_area(self ) -> list:
+        list = []
+        
         for group in self.agent.gem_groups :
-            list = []
-            arrangement_of_gem = np.zeros((1, len(group)+1), dtype=int)
-            group_temp = np.copy(group)
-            if(len(np.where(group_temp == '1')) != 0 ):
-                # first time agent eats gem 1(yellow) :
-                self.agent.prev_gem = '1'
-                list.append( "1" , self.arrange_gem(group_temp , arrangement_of_gem)[0][-1]+50)
-            if(len(np.where(group_temp == '2')) != 0 ):
-                # first time agent eats gem 2(green) :
-                self.agent.prev_gem = '2'
-                list.append( "2" , self.arrange_gem(group_temp , arrangement_of_gem)[0][-1])
 
-            if(len(np.where(group_temp == '3')) != 0 ):
-                # first time agent eats gem 3(red) :
-                self.agent.prev_gem = '3'
-                list.append( "3" , self.arrange_gem(group_temp , arrangement_of_gem)[0][-1])
-            if(len(np.where(group_temp == '4')) != 0 ):
-                # first time agent eats gem 4(blue) :
-                self.agent.prev_gem = '4'
-                list.append( "4" , self.arrange_gem(group_temp , arrangement_of_gem)[0][-1])
-            
-            # find which key eat for the first time :
-            list.sort(key=lambda a: a[1] , reverse=True)
-            self.agent.prev_gem = list[0][0]
-
-            # find best arrangement of gem and save total score of them on first element
-            arrangement_of_gem = np.empty((1, len(group)+1), dtype=int)
-            best_arrangement_of_gem = self.arrange_gem(group , arrangement_of_gem)
-            
-            
-        # self.agent.gem_groups.sort(key=lambda a: a[0] , reverse=True)
-
-            
-        return arrangement_of_gem
+            self.agent.prev_gem = None                    
+            best_arrange = self.arrange_gem( group[:, 2].tolist() , [0])
+            list.append((best_arrange[0] , best_arrange[1:] ))
+        list.sort(key=lambda a: a[0] , reverse=True)            
+        return list[0]
 
 
     def calc_gems_scores(self, gem: str) -> int:
@@ -384,8 +359,9 @@ class Phase1:
     def main(self):
         # print(self.calc_neighbor(self.agent.agent_index[0][0], self.agent.agent_index[0][1]))
         self.agent.prev_gem = None
-        print("f",self.arrange_gem( [ "1" , "2" , "3" , "1" , "2"] , [0]))
-        # self.find_best_area()
+        # print( "f",self.arrange_gem( ["1" ,"2" ,"2" , "3" , "1"], [0]))
+        print("f",self.find_best_area())
+        #self.find_best_area()
         return Action.NOOP
         # return random.choice(
         #     [Action.DOWN, Action.DOWN_RIGHT, Action.DOWN_LEFT, Action.RIGHT, Action.LEFT, Action.UP_LEFT,
