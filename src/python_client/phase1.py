@@ -354,9 +354,10 @@ class Phase1:
             gem_groups = self.search_gems(index, gem_group, searched_gems, gem_groups, gem_indexes)
 
     def find_path_for_gem_group(self, gem_group: np.array, gem_index: tuple):
+        # self.agent.agent_index[0] = (3, 0)
         find_path = FindPath(gem_group, gem_index, self.agent.agent_index[0], self.agent.wall_indexes,
                              self.agent.barbed_indexes, self.agent.door_indexes, self.width, self.height)
-        find_path.main()
+        print(find_path.main())
 
     def remove_item_after_action(self, item_type: str, item_index: np.array):
         if item_type == "gem":
@@ -365,7 +366,7 @@ class Phase1:
     def main(self):
         # self.calc_aim()
         # self.agent.gem_group_distances = self.calc_gem_group_distances()
-        self.find_path_for_gem_group(self.agent.gem_groups[0], (3, 17))
+        self.find_path_for_gem_group(self.agent.gem_groups[0], (15, 12))
         # print(self.agent.gem_group_distances)
         return Action.NOOP
         # return random.choice(
