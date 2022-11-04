@@ -1,5 +1,4 @@
 import numpy as np
-
 from base import Action
 from utils.config import GEMS
 from find_path import FindPath
@@ -96,7 +95,7 @@ class Phase1:
         # index_of_first_gem = self.find_best_area()[2]
         # print(index_of_first_gem)
         score_of_area, arrange_of_area, index_of_first_gem = self.find_best_area()
-        return index_of_first_gem
+        return index_of_first_gem , score_of_area
 
     def calc_gems_scores(self, gem: str, prev_gem: str) -> int:
         if prev_gem is None:
@@ -241,16 +240,21 @@ class Phase1:
         x = 0
         item_type = ''
         item_index = ()
-        aim_index = self.calc_aim()
+        index_of_first_gem , score_of_area = self.calc_aim()
         best_gem_group = ''
         neighbors = np.empty((0, 3), dtype=int)
         for i in range(i_agent - 1, i_agent + 2):
             y = 0
             for j in range(j_agent - 1, j_agent + 2):
+
                 if i == i_agent and j == j_agent:
                     cost[x][y] += 0
 
                 elif i != -1 and j != -1 and j != self.width and i != self.height:
+                    cost[x][y] += self.find_path_for_gem_group(
+                    best_gem_group, index_of_first_gem, np.array([i, j]))
+                    cost[x][y] += score_of_area
+
                     if self.map[i][j] == 'E':
                         item_type = "empty"
                         item_index = (x, y)
@@ -261,9 +265,6 @@ class Phase1:
                             cost[x][y] += -1
                         else:
                             cost[x][y] += -2
-
-                        cost[x][y] += self.find_path_for_gem_group(
-                            best_gem_group, aim_index, np.array([x, y]))
                         neighbors = np.vstack(
                             (neighbors, [cost[x][y], item_type, item_index]))
 
@@ -283,8 +284,6 @@ class Phase1:
                             item_type = "get_yellow_key"
 
                         cost[x][y] += 10
-                        cost[x][y] += self.find_path_for_gem_group(
-                            best_gem_group, aim_index, np.array([x, y]))
                         item_index = (x, y)
                         neighbors = np.vstack(
                             (neighbors, [cost[x][y], item_type, item_index]))
@@ -293,8 +292,7 @@ class Phase1:
                         item_type = "barbed"
                         item_index = (x, y)
                         cost[x][y] += -20
-                        cost[x][y] += self.find_path_for_gem_group(
-                            best_gem_group, aim_index, np.array([x, y]))
+
                         neighbors = np.vstack(
                             (neighbors, [cost[x][y], item_type, item_index]))
 
@@ -302,8 +300,6 @@ class Phase1:
                         # its lock
                         # if we have key :
                         cost[x][y] += 10
-                        cost[x][y] += self.find_path_for_gem_group(
-                            best_gem_group, aim_index, np.array([x, y]))
                         item_index = (x, y)
 
                         if self.map[i][j] == 'G':
@@ -340,8 +336,6 @@ class Phase1:
                             item_type = "blue_gem"
                             cost[x][y] += self.calc_gems_scores(
                                 '4', self.agent.prev_gem)
-                        cost[x][y] += self.find_path_for_gem_group(
-                            best_gem_group, aim_index, np.array([x, y]))
                         item_index = (x, y)
                         neighbors = np.vstack(
                             (neighbors, [cost[x][y], item_type, item_index]))
@@ -351,12 +345,15 @@ class Phase1:
 
                 y += 1
             x += 1
+        print("n",cost)
+        print("aim" , index_of_first_gem)
         action = np.argmax(cost)
         max_score = np.amax(cost)
-        for row in range(0, 9):
-            if neighbors[i][0] == max_score:
-                item_type = neighbors[i][1]
-                item_index = neighbors[i][2]
+        # print(neighbors.shape)
+        for row in range(0, neighbors.shape[0]):
+            if neighbors[row][0] == max_score:
+                item_type = neighbors[row][1]
+                item_index = neighbors[row][2]
 
         return action, item_type, item_index
 
@@ -447,7 +444,7 @@ class Phase1:
                 cost = -500
 
         else:
-            cost = len(path) * -10
+            cost = len(path) * -1
         return cost
 
     def remove_item_after_action(self, item_type: str, item_index: np.array):
@@ -490,6 +487,13 @@ class Phase1:
             pass
 
     def main(self):
+        agent_index = np.empty((0, 2), dtype=int)
+        for row in range(self.map.shape[0]):
+            agent = np.where(self.map[row] == 'EA')
+            if len(agent[0]) != 0:
+                agent_index = np.vstack((agent_index, [row, agent[0][0]]))
+                self.agent.agent_index = agent_index
+        print("agent" ,self.agent.agent_index[0][0] , self.agent.agent_index[0][1] )
 
         (action, item_type, item_index) = self.calc_neighbors(
             self.agent.agent_index[0][0], self.agent.agent_index[0][1])
