@@ -70,16 +70,33 @@ class Phase1:
         prev_gem = self.agent.prev_gem
         for group in self.agent.gem_groups:
 
+            # find best arrange for this gem group
+
             best_arrange = self.arrange_gem(group[:, 2].tolist(), [0], prev_gem)
             first_gem_of_arrange = best_arrange[1]
             index_of_first_gem_of_arrange = ()
             for i in range(0, group.shape[0]):
                 if int(group[i][2]) == int(first_gem_of_arrange):
                     index_of_first_gem_of_arrange = (group[i][0], group[i][1])
-            list.append((best_arrange[0], best_arrange[1:], index_of_first_gem_of_arrange))
+
+            # cal distance from agent to first gem of this gem group 
+            path = self.find_path_for_gem_group(group, index_of_first_gem_of_arrange)
+            if len(path) == 1  :
+
+                if path == 0 :
+                    cost_and_score = best_arrange[0] + -10000
+            
+                elif path == -1 :
+                    cost_and_score = best_arrange[0] + -500 
+
+            else:
+                cost_and_score = len(path) * -10 + best_arrange[0]
+            
+            
+            list.append((cost_and_score, best_arrange[1:], index_of_first_gem_of_arrange))
         list.sort(key=lambda a: a[0], reverse=True)
         self.agent.gems_arrangement = list
-        print(list)
+        # print(list)
         return list[0]
 
     def calc_aim(self):
@@ -357,7 +374,7 @@ class Phase1:
         # self.agent.agent_index[0] = (3, 0)
         find_path = FindPath(gem_group, gem_index, self.agent.agent_index[0], self.agent.wall_indexes,
                              self.agent.barbed_indexes, self.agent.door_indexes, self.width, self.height)
-        print(find_path.main())
+        return find_path.main()
 
     def remove_item_after_action(self, item_type: str, item_index: np.array):
         if item_type == "gem":
@@ -366,7 +383,22 @@ class Phase1:
     def main(self):
         # self.calc_aim()
         # self.agent.gem_group_distances = self.calc_gem_group_distances()
-        self.find_path_for_gem_group(self.agent.gem_groups[0], (15, 12))
+
+
+        print("aim",self.calc_aim())
+
+
+
+        # print("gems",self.agent.gem_groups[0])
+        # i=self.agent.gem_groups[0][0 , :][0]
+        # j=self.agent.gem_groups[0][0 , :][1]
+        # print("gem1",i,j)
+        # print("path",self.find_path_for_gem_group(self.agent.gem_groups[0], (15, 12)))
+
+
+
+
+
         # print(self.agent.gem_group_distances)
         return Action.NOOP
         # return random.choice(

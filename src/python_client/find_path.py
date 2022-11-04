@@ -246,13 +246,13 @@ class FindPath:
             ideal_path = self.find_ideal_path(path, end_point)
             path = ideal_path
             if tuple(path[-1, :].tolist()) == self.gem_index:
-                print(self.end_point_histories)
+                # print(self.end_point_histories)
                 return path
             if self.wall is not None:
                 # if not self.tested_directions['diagonal']:
                 targets = self.search_walls(ideal_path)
                 if self.wall_directions['horiz'] > 2 or self.wall_directions['vertic'] > 2:
-                    print(self.end_point_histories)
+                    # print(self.end_point_histories)
                     return 0
                 if targets is not None:
                     targets = [tuple(x.tolist()) for x in targets]
