@@ -2,7 +2,7 @@ import numpy as np
 from base import Action
 from utils.config import GEMS
 from find_path import FindPath
-
+import math 
 
 class Phase1:
     def __init__(self, Agent):
@@ -30,6 +30,8 @@ class Phase1:
             self.agent.yellow_key_number = 0
         if 'red_key_number' not in self.agent.__dict__:
             self.agent.red_key_number = 0
+
+
 
     def arrange_gem(self, gem_group, best_arrangement_of_gem, prev_gem: str) -> list:
         # gem_group is first arrange of gem
@@ -69,7 +71,7 @@ class Phase1:
             # find best arrange for this gem group
 
             best_arrange = self.arrange_gem(
-                group[:, 2].tolist(), [0], prev_gem)
+                group[:, 2].tolist(), [self.agent.agent_scores[0]], prev_gem)
             first_gem_of_arrange = best_arrange[1]
             index_of_first_gem_of_arrange = ()
             for i in range(0, group.shape[0]):
@@ -247,24 +249,18 @@ class Phase1:
             y = 0
             for j in range(j_agent - 1, j_agent + 2):
 
-                if i == i_agent and j == j_agent:
-                    cost[x][y] += 0
+                if i != -1 and j != -1 and j != self.width and i != self.height:
 
-                elif i != -1 and j != -1 and j != self.width and i != self.height:
+                    cost[x][y] += self.agent.agent_scores[0]
                     cost[x][y] += self.find_path_for_gem_group(
                     best_gem_group, index_of_first_gem, np.array([i, j]))
+                    print(i,j,"cost",self.find_path_for_gem_group(
+                    best_gem_group, index_of_first_gem, np.array([i, j])))
                     cost[x][y] += score_of_area
 
                     if self.map[i][j] == 'E':
                         item_type = "empty"
                         item_index = (x, y)
-
-                        if (i == i_agent):
-                            cost[x][y] += -1
-                        elif (j == j_agent):
-                            cost[x][y] += -1
-                        else:
-                            cost[x][y] += -2
                         neighbors = np.vstack(
                             (neighbors, [cost[x][y], item_type, item_index]))
 
@@ -283,7 +279,7 @@ class Phase1:
                         elif self.map[i][j] == 'y':
                             item_type = "get_yellow_key"
 
-                        cost[x][y] += 10
+                        cost[x][y] += 20
                         item_index = (x, y)
                         neighbors = np.vstack(
                             (neighbors, [cost[x][y], item_type, item_index]))
@@ -299,7 +295,7 @@ class Phase1:
                     elif self.map[i][j] == 'G' or self.map[i][j] == 'R' or self.map[i][j] == 'Y':
                         # its lock
                         # if we have key :
-                        cost[x][y] += 10
+                        cost[x][y] += 20
                         item_index = (x, y)
 
                         if self.map[i][j] == 'G':
@@ -438,46 +434,59 @@ class Phase1:
 
         if type(path) != np.ndarray:
             if path == 0:
-                cost = -10000
+                # cost = math.exp(-10000)
+                cost = -1000
 
             elif path == -1:
+                # cost = math.exp( -500)
                 cost = -500
 
         else:
+            # cost = math.exp(len(path) * -1)
             cost = len(path) * -1
         return cost
 
     def remove_item_after_action(self, item_type: str, item_index: np.array):
 
-        # delete this key from door indexes
+        #  delete this item index from door indexes
         if item_type == "unlocked_green_door":
             if self.agent.green_key_number > 0:
                 self.agent.green_key_number -= 1
+                self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "unlocked_red_door":
             if self.agent.red_key_number > 0:
                 self.agent.red_key_number -= 1
+                self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "unlocked_yellow_door":
             if self.agent.yellow_key_number > 0:
                 self.agent.yellow_key_number -= 1
+                self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
-        # delete this key from key indexes
+        # delete this item index from key indexes
         elif item_type == "get_green_key":
             self.agent.green_key_number += 1
+            self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "get_red_key":
             self.agent.red_key_number += 1
+            self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "get_yellow_key":
             self.agent.yellow_key_number += 1
+            self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
-        # delete this gem from gem indexes and set to the gem prev
+        # delete this item index from gem indexes and set to the gem prev
         # delete from gem groups too
         elif item_type == "green_gem":
             self.agent.prev_gem = '1'
+            self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "red_gem":
             self.agent.prev_gem = '2'
+            self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "yellow_gem":
             self.agent.prev_gem = '3'
+            self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "blue_gem":
             self.agent.prev_gem = '4'
+            self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
         elif item_type == "barbed":
             pass
@@ -485,16 +494,30 @@ class Phase1:
             pass
         elif item_type == "empty":
             pass
-
-    def main(self):
+    def set_the_map(self):
         agent_index = np.empty((0, 2), dtype=int)
         for row in range(self.map.shape[0]):
             agent = np.where(self.map[row] == 'EA')
             if len(agent[0]) != 0:
-                agent_index = np.vstack((agent_index, [row, agent[0][0]]))
-                self.agent.agent_index = agent_index
-        print("agent" ,self.agent.agent_index[0][0] , self.agent.agent_index[0][1] )
+                 agent_index = np.vstack((agent_index, [row, agent[0][0]]))
+                 self.agent.agent_index = agent_index
 
+
+        self.map = np.array(self.agent.grid)        
+        self.agent.gem_indexes = self.make_gem_indexes()        
+        self.agent.wall_indexes = self.make_wall_indexes()
+        
+        self.agent.key_indexes = self.make_key_indexes()
+        
+        self.agent.door_indexes = self.make_door_indexes()
+        
+        self.agent.barbed_indexes = self.make_barbed_indexes()
+        self.agent.gem_groups = self.group_gems()
+        
+
+    def main(self):
+        self.set_the_map()
+        print("agent" , self.agent.agent_index[0][0] , self.agent.agent_index[0][1])
         (action, item_type, item_index) = self.calc_neighbors(
             self.agent.agent_index[0][0], self.agent.agent_index[0][1])
         self.remove_item_after_action(item_type, item_index)
