@@ -251,12 +251,12 @@ class Phase1:
 
                 if i != -1 and j != -1 and j != self.width and i != self.height:
 
-                    cost[x][y] += self.agent.agent_scores[0]
+                    # cost[x][y] += self.agent.agent_scores[0]
                     cost[x][y] += self.find_path_for_gem_group(
                     best_gem_group, index_of_first_gem, np.array([i, j]))
                     print(i,j,"cost",self.find_path_for_gem_group(
                     best_gem_group, index_of_first_gem, np.array([i, j])))
-                    cost[x][y] += score_of_area
+                    # cost[x][y] += score_of_area
 
                     if self.map[i][j] == 'E':
                         item_type = "empty"
@@ -434,16 +434,17 @@ class Phase1:
 
         if type(path) != np.ndarray:
             if path == 0:
-                # cost = math.exp(-10000)
-                cost = -1000
+                cost = math.exp(-10000)
+                # cost = -1000
+
 
             elif path == -1:
-                # cost = math.exp( -500)
-                cost = -500
+                cost = math.exp( -500)
+                # cost = -50
 
         else:
-            # cost = math.exp(len(path) * -1)
-            cost = len(path) * -1
+            cost = math.exp(len(path) * -1)
+            # cost = len(path) * -1
         return cost
 
     def remove_item_after_action(self, item_type: str, item_index: np.array):
@@ -476,13 +477,13 @@ class Phase1:
         # delete this item index from gem indexes and set to the gem prev
         # delete from gem groups too
         elif item_type == "green_gem":
-            self.agent.prev_gem = '1'
-            self.agent.grid[item_index[0]][item_index[1]] = 'E'
-        elif item_type == "red_gem":
             self.agent.prev_gem = '2'
             self.agent.grid[item_index[0]][item_index[1]] = 'E'
-        elif item_type == "yellow_gem":
+        elif item_type == "red_gem":
             self.agent.prev_gem = '3'
+            self.agent.grid[item_index[0]][item_index[1]] = 'E'
+        elif item_type == "yellow_gem":
+            self.agent.prev_gem = '1'
             self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "blue_gem":
             self.agent.prev_gem = '4'
@@ -503,7 +504,8 @@ class Phase1:
                  self.agent.agent_index = agent_index
 
 
-        self.map = np.array(self.agent.grid)        
+        self.map = np.array(self.agent.grid)
+        print("map",self.map)        
         self.agent.gem_indexes = self.make_gem_indexes()        
         self.agent.wall_indexes = self.make_wall_indexes()
         
