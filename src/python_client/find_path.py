@@ -147,7 +147,7 @@ class FindPath:
                     else:
                         self.agent_row -= 1
             path_index = np.array([self.agent_row, self.agent_col])
-            if path_index.tolist() in self.wall_indexes.tolist():
+            if path_index.tolist() in self.wall_indexes.tolist() :
                 self.wall_stat += 1
                 self.wall = path_index
                 for enum, history in enumerate(self.end_point_histories):
@@ -175,7 +175,7 @@ class FindPath:
             else:
                 self.agent_col -= 1
             path_index = np.array([self.agent_row, self.agent_col])
-            if path_index.tolist() in self.wall_indexes.tolist():
+            if path_index.tolist() in self.wall_indexes.tolist() :
                 for enum, history in enumerate(self.end_point_histories):
                     agent_point, target_point = history[:2]
                     if start_point == agent_point and end_point == target_point:
