@@ -295,6 +295,7 @@ class Phase1:
                         elif self.map[i][j] == '*':
                             item_type = "barbed"
                             item_index = (x, y)
+                            # if(cost[x][y] -20  > self.agent.agent_scores[0]):
                             cost[x][y] += -20
 
                             neighbors = np.vstack(
@@ -448,6 +449,8 @@ class Phase1:
             cost +=1
         else :
             cost +=2
+        (i,j) = new_path[0]
+        print("barbed" , self.agent.barbed_indexes)
         prev_index = new_path[0,:]
         cost = self.calc_cost_of_path(new_path,prev_index , cost)
         if cost is not None :
@@ -475,27 +478,28 @@ class Phase1:
 
         if type(path) != np.ndarray:
             if path == 0:
-                cost = math.exp(-10000)
-                # cost = -1000
+                # cost = math.exp(-10000)
+                cost = -1000
 
 
             elif path == -1:
-                cost = math.exp(-500)
-                # cost = -50
+                # cost = math.exp(-500)
+                cost = math.pow(abs(gem_index[0] - agent_index[0]),2) + math.pow(abs(gem_index[1] - agent_index[1]),2)
+                cost = -round(math.sqrt(cost))
 
         else:
             path_length = self.calc_cost_of_path(path, path[0,:] , 0)
 
 
 
-            # cost = path_length * -1
-            cost = math.exp(-path_length)
+            cost = path_length * -1
+            # cost = math.exp(-path_length)
         # print("path cost:", cost)
         return cost
 
     def remove_item_after_action(self, item_type: str, item_index: np.array):
 
-        #  delete this item index from door indexes
+
         if item_type == "unlocked_green_door":
             if self.agent.green_key_number > 0:
                 self.agent.green_key_number -= 1
@@ -509,7 +513,7 @@ class Phase1:
                 self.agent.yellow_key_number -= 1
                 self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
-        # delete this item index from key indexes
+
         elif item_type == "get_green_key":
             self.agent.green_key_number += 1
             self.agent.grid[item_index[0]][item_index[1]] = 'E'
@@ -520,8 +524,7 @@ class Phase1:
             self.agent.yellow_key_number += 1
             self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
-        # delete this item index from gem indexes and set to the gem prev
-        # delete from gem groups too
+
         elif item_type == "green_gem":
             self.agent.prev_gem = '2'
             self.agent.grid[item_index[0]][item_index[1]] = 'E'
