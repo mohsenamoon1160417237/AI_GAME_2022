@@ -81,6 +81,8 @@ class Phase1:
             # cal distance from agent to first gem of this gem group
             cost = self.find_path_for_gem_group(
                 group, index_of_first_gem_of_arrange, self.agent.agent_index[0])
+            # print("aimt" ,index_of_first_gem_of_arrange )
+            # print("cost to aim" , cost)
 
             cost_and_score = cost + best_arrange[0]
 
@@ -315,7 +317,7 @@ class Phase1:
                                 item_type = "unlocked_yellow_door"
                             else:
                                 # we dont have key :
-                                cost[x][y] += -10000
+                                cost[x][y] += -10000000
                             neighbors = np.vstack(
                                 (neighbors, [cost[x][y], item_type, item_index]))
 
@@ -346,7 +348,7 @@ class Phase1:
                                 (neighbors, [cost[x][y], item_type, item_index]))
 
                 else:
-                    cost[x][y] += -10000
+                    cost[x][y] += -10000000
 
                 y += 1
             x += 1
@@ -449,8 +451,13 @@ class Phase1:
             cost +=1
         else :
             cost +=2
-        (i,j) = new_path[0]
-        print("barbed" , self.agent.barbed_indexes)
+        (i,j) = prev_index
+        #checking for barbed indexes :
+        for row in range(self.agent.barbed_indexes.shape[0]):
+            if self.agent.barbed_indexes[row][0] == i and self.agent.barbed_indexes[row][1] == j :
+                cost += 20 
+
+        # print("barbed" , self.agent.barbed_indexes)
         prev_index = new_path[0,:]
         cost = self.calc_cost_of_path(new_path,prev_index , cost)
         if cost is not None :
@@ -472,14 +479,14 @@ class Phase1:
 
 
 
-        # print("src:",agent_index)
-        # print("destination:",gem_index)
-        # print("path:", path)
+        print("src:",agent_index)
+        print("destination:",gem_index)
+        print("path:", path)
 
         if type(path) != np.ndarray:
             if path == 0:
                 # cost = math.exp(-10000)
-                cost = -1000
+                cost = -10000000
 
 
             elif path == -1:

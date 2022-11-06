@@ -240,6 +240,10 @@ class FindPath:
         now = datetime.now()
         path = np.array([self.agent_index])
         end_point = [[self.gem_index]]
+        agent_index = self.agent_index.tolist()
+        for wall_indexes in self.wall_indexes.tolist():
+            if agent_index == wall_indexes :
+                return 0
         while True:
             if (datetime.now() - now).total_seconds() > 0.5:
                 return -1
@@ -251,7 +255,7 @@ class FindPath:
             if self.wall is not None:
                 # if not self.tested_directions['diagonal']:
                 targets = self.search_walls(ideal_path)
-                if self.wall_directions['horiz'] > 2 or self.wall_directions['vertic'] > 2:
+                if self.wall_directions['horiz'] > 9 or self.wall_directions['vertic'] > 9:
                     # print(self.end_point_histories)
                     return 0
                 if targets is not None:
