@@ -186,7 +186,7 @@ class FindPath:
                     else:
                         self.agent_row -= 1
             path_index = np.array([self.agent_row, self.agent_col])
-            if path_index.tolist() in self.wall_indexes.tolist() :
+            if path_index.tolist() in self.wall_indexes.tolist():
                 self.wall_stat += 1
                 self.wall['index'] = path_index
                 self.wall['time'] = datetime.now()
@@ -229,7 +229,7 @@ class FindPath:
             else:
                 self.agent_col -= 1
             path_index = np.array([self.agent_row, self.agent_col])
-            if path_index.tolist() in self.wall_indexes.tolist() :
+            if path_index.tolist() in self.wall_indexes.tolist():
                 # for enum, history in enumerate(self.end_point_histories):
                 #     agent_point, target_point = history[:2]
                 #     if start_point == agent_point and end_point == target_point:
@@ -328,7 +328,6 @@ class FindPath:
             if agent_index == wall_index:
                 return 0
         while True:
-            # print(f'end_point: {end_point}')
             if (datetime.now() - now).total_seconds() > 0.5:
                 return -1
             ideal_path = self.find_ideal_path(path, end_point)
@@ -347,14 +346,19 @@ class FindPath:
                     return 0
                 if targets is not None:
                     targets = [tuple(x.tolist()) for x in targets]
-                    if targets not in end_point:
-                        end_point.append(targets)
+                    if len(targets) != 0:
+                        if targets not in end_point:
+                            end_point.append(targets)
             elif latest_obstacle == "barbed":
                 targets = self.search_obstacles(ideal_path, self.barbed['index'], "barbed")
                 if targets is not None:
                     targets = [tuple(x.tolist()) for x in targets]
-                    if targets not in end_point:
-                        end_point.append(targets)
+                    if len(targets) != 0:
+                        if targets not in end_point:
+                            end_point.append(targets)
+            if len(end_point) == 0:
+                print("end point is empty")
+            print(f'end_point: {end_point}')
             if tuple(path[-1, :].tolist()) == tuple(end_point[-1][0]):
                 end_point = end_point[:-1]
                 if len(end_point) == 0:

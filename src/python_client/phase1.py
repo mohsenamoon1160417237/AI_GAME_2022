@@ -324,7 +324,8 @@ class Phase1:
                             neighbors = np.vstack(
                                 (neighbors, [cost[x][y], item_type, item_index]))
 
-                        elif self.map[i][j] == '1' or self.map[i][j] == '2' or self.map[i][j] == '3' or self.map[i][j] == '4':
+                        elif self.map[i][j] == '1' or self.map[i][j] == '2' or self.map[i][j] == '3' or self.map[i][
+                            j] == '4':
 
                             # its GEM
                             if self.map[i][j] == '1':
@@ -488,7 +489,7 @@ class Phase1:
             elif path == -1:
                 # cost = math.exp(-500)
                 cost = math.pow(abs(gem_index[0] - agent_index[0]), 2) + \
-                    math.pow(abs(gem_index[1] - agent_index[1]), 2)
+                       math.pow(abs(gem_index[1] - agent_index[1]), 2)
                 cost = -round(math.sqrt(cost))
 
         else:
@@ -566,13 +567,13 @@ class Phase1:
 
     def main2(self):
         print(self.find_path_for_gem_group(
-            self.agent.gem_groups[0], (5, 2), np.array([0, 0])))
+            self.agent.gem_groups[0], (3, 2), np.array([3, 15])))
         return Action.NOOP
 
     def main(self):
         self.set_the_map()
         print("agent", self.agent.agent_index[0]
-              [0], self.agent.agent_index[0][1])
+        [0], self.agent.agent_index[0][1])
         (action, item_type, item_index) = self.calc_neighbors(
             self.agent.agent_index[0][0], self.agent.agent_index[0][1])
         self.remove_item_after_action(item_type, item_index)
