@@ -562,7 +562,7 @@ class Phase1:
         self.agent.gem_groups = self.group_gems()
 
     def main2(self):
-        print(self.find_path_for_gem_group(self.agent.gem_groups[0], (1, 2), np.array([0, 0])))
+        print(self.find_path_for_gem_group(self.agent.gem_groups[0], (5, 2), np.array([0, 0])))
         return Action.NOOP
 
     def main(self):

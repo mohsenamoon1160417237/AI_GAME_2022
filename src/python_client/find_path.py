@@ -196,10 +196,13 @@ class FindPath:
                 #         self.end_point_histories[enum][2]['direct'] = 1
                 return path
             elif path_index.tolist() in self.barbed_indexes.tolist():
-                self.barbed['index'] = path_index
-                self.barbed['time'] = datetime.now()
-                # self.barbed_histories.append(path_index)
-                return path
+                if tuple(path_index.tolist()) not in end_point:
+                    self.barbed['index'] = path_index
+                    self.barbed['time'] = datetime.now()
+                    # self.barbed_histories.append(path_index)
+                    return path
+
+                path = np.vstack((path, path_index))
             else:
                 path = np.vstack((path, path_index))
         self.tested_directions['diagonal'] = False
@@ -240,12 +243,15 @@ class FindPath:
                 self.wall['time'] = datetime.now()
                 return path
             elif path_index.tolist() in self.barbed_indexes.tolist():
-                barbed_index = self.barbed['index']
-                if barbed_index is not None:
-                    self.tested_directions['diagonal'] = True
-                self.barbed['index'] = path_index
-                self.barbed['time'] = datetime.now()
-                return path
+                if tuple(path_index.tolist()) not in end_point:
+                    barbed_index = self.barbed['index']
+                    if barbed_index is not None:
+                        self.tested_directions['diagonal'] = True
+                    self.barbed['index'] = path_index
+                    self.barbed['time'] = datetime.now()
+                    return path
+
+                path = np.vstack((path, path_index))
             else:
                 path = np.vstack((path, path_index))
 
@@ -286,14 +292,14 @@ class FindPath:
 
         if not tested_dir.get('diagonal') and not tested_dir.get('direct'):
             path = self.find_ideal_diagonal_path(shorter_distance, larger_row, larger_col, path, start_point,
-                                                 end_point[-1][0])
+                                                 end_point[-1])
             if self.wall['index'] is not None or self.barbed['index'] is not None or tuple(
-                    path[-1, :].tolist()) == tuple(end_point[-1][0]):
+                    path[-1, :].tolist()) == tuple(end_point[-1]):
                 return path
 
             remaining_distance = abs(longer_distance - shorter_distance)
             path = self.find_ideal_direct_path(remaining_distance, distance, larger_col, larger_row, path, start_point,
-                                               end_point[-1][0])
+                                               end_point[-1])
             return path
         elif tested_dir.get('diagonal') and not tested_dir.get('direct'):
             remaining_distance = abs(longer_distance - shorter_distance)
