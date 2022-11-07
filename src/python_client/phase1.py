@@ -2,7 +2,8 @@ import numpy as np
 from base import Action
 from utils.config import GEMS
 from find_path import FindPath
-import math 
+import math
+
 
 class Phase1:
     def __init__(self, Agent):
@@ -30,8 +31,6 @@ class Phase1:
             self.agent.yellow_key_number = 0
         if 'red_key_number' not in self.agent.__dict__:
             self.agent.red_key_number = 0
-
-
 
     def arrange_gem(self, gem_group, best_arrangement_of_gem, prev_gem: str) -> list:
         # gem_group is first arrange of gem
@@ -99,7 +98,7 @@ class Phase1:
         # index_of_first_gem = self.find_best_area()[2]
         # print(index_of_first_gem)
         score_of_area, arrange_of_area, index_of_first_gem = self.find_best_area()
-        return index_of_first_gem , score_of_area
+        return index_of_first_gem, score_of_area
 
     def calc_gems_scores(self, gem: str, prev_gem: str) -> int:
         if prev_gem is None:
@@ -244,7 +243,8 @@ class Phase1:
         x = 0
         item_type = ''
         item_index = ()
-        index_of_first_gem , score_of_area = self.calc_aim()
+        index_of_first_gem, score_of_area = self.calc_aim()
+        print(f"index_of_first_gem: {index_of_first_gem}")
         best_gem_group = ''
         neighbors = np.empty((0, 3), dtype=int)
         for i in range(i_agent - 1, i_agent + 2):
@@ -253,20 +253,17 @@ class Phase1:
 
                 if i != -1 and j != -1 and j != self.width and i != self.height:
 
-                    if(i == i_agent and j == j_agent):
+                    if (i == i_agent and j == j_agent):
                         cost[x][y] += self.agent.agent_scores[0]
 
-                    else:    
+                    else:
 
                         cost[x][y] += self.agent.agent_scores[0]
                         cost[x][y] += self.find_path_for_gem_group(
-                        best_gem_group, index_of_first_gem, np.array([i, j]))
-                        print(i,j,"cost",self.find_path_for_gem_group(
-                        best_gem_group, index_of_first_gem, np.array([i, j])))
+                            best_gem_group, index_of_first_gem, np.array([i, j]))
+                        print(i, j, "cost", self.find_path_for_gem_group(
+                            best_gem_group, index_of_first_gem, np.array([i, j])))
                         cost[x][y] += score_of_area
-
-                        
-
 
                         if self.map[i][j] == 'E':
                             item_type = "empty"
@@ -321,7 +318,8 @@ class Phase1:
                             neighbors = np.vstack(
                                 (neighbors, [cost[x][y], item_type, item_index]))
 
-                        elif self.map[i][j] == '1' or self.map[i][j] == '2' or self.map[i][j] == '3' or self.map[i][j] == '4':
+                        elif self.map[i][j] == '1' or self.map[i][j] == '2' or self.map[i][j] == '3' or self.map[i][
+                            j] == '4':
 
                             # its GEM
                             if self.map[i][j] == '1':
@@ -352,15 +350,14 @@ class Phase1:
 
                 y += 1
             x += 1
-        print("total cost",cost)
-        print("aim" , index_of_first_gem)
+        print("total cost", cost)
+        print("aim", index_of_first_gem)
         action = np.argmax(cost)
         # print(action)
         # if(action == 4 and self.agent.turn_count > 0 ):
         #     cost[1][1] = 0
         #     action = np.argmax(cost)
 
-        
         max_score = np.amax(cost)
         # print(neighbors.shape)
         for row in range(0, neighbors.shape[0]):
@@ -441,32 +438,30 @@ class Phase1:
             gem_groups = self.search_gems(
                 index, gem_group, searched_gems, gem_groups, gem_indexes)
 
-    def calc_cost_of_path(self,path, prev_index , cost)->int:
+    def calc_cost_of_path(self, path, prev_index, cost) -> int:
 
-        if path.shape[0] == 1 :
+        if path.shape[0] == 1:
             return cost
-        new_path = np.delete(path , 0 ,axis=0)
+        new_path = np.delete(path, 0, axis=0)
         # print(new_path[0][1])
-        if new_path[0][0] == prev_index[0] or new_path[0][1] == prev_index[1] :
-            cost +=1
-        else :
-            cost +=2
-        (i,j) = prev_index
-        #checking for barbed indexes :
+        if new_path[0][0] == prev_index[0] or new_path[0][1] == prev_index[1]:
+            cost += 1
+        else:
+            cost += 2
+        (i, j) = prev_index
+        # checking for barbed indexes :
         for row in range(self.agent.barbed_indexes.shape[0]):
-            if self.agent.barbed_indexes[row][0] == i and self.agent.barbed_indexes[row][1] == j :
-                cost += 20 
+            if self.agent.barbed_indexes[row][0] == i and self.agent.barbed_indexes[row][1] == j:
+                cost += 20
 
-        # print("barbed" , self.agent.barbed_indexes)
-        prev_index = new_path[0,:]
-        cost = self.calc_cost_of_path(new_path,prev_index , cost)
-        if cost is not None :
+                # print("barbed" , self.agent.barbed_indexes)
+        prev_index = new_path[0, :]
+        cost = self.calc_cost_of_path(new_path, prev_index, cost)
+        if cost is not None:
             return cost
-        
 
-    def find_path_for_gem_group(self, gem_group: np.array, gem_index: tuple, agent_index):
+    def find_path_for_gem_group(self, gem_group: np.array, gem_index: tuple, agent_index: np.array):
         # self.agent.agent_index[0] = (3, 0)
-
 
         # cost = math.pow(abs(gem_index[0] - agent_index[0]),2) + math.pow(abs(gem_index[1] - agent_index[1]),2)
         # return math.exp(-math.sqrt(cost))
@@ -476,11 +471,8 @@ class Phase1:
 
         path = find_path.main()
 
-
-
-
-        print("src:",agent_index)
-        print("destination:",gem_index)
+        print("src:", agent_index)
+        print("destination:", gem_index)
         print("path:", path)
 
         if type(path) != np.ndarray:
@@ -491,13 +483,11 @@ class Phase1:
 
             elif path == -1:
                 # cost = math.exp(-500)
-                cost = math.pow(abs(gem_index[0] - agent_index[0]),2) + math.pow(abs(gem_index[1] - agent_index[1]),2)
+                cost = math.pow(abs(gem_index[0] - agent_index[0]), 2) + math.pow(abs(gem_index[1] - agent_index[1]), 2)
                 cost = -round(math.sqrt(cost))
 
         else:
-            path_length = self.calc_cost_of_path(path, path[0,:] , 0)
-
-
+            path_length = self.calc_cost_of_path(path, path[0, :], 0)
 
             cost = path_length * -1
             # cost = math.exp(-path_length)
@@ -505,7 +495,6 @@ class Phase1:
         return cost
 
     def remove_item_after_action(self, item_type: str, item_index: np.array):
-
 
         if item_type == "unlocked_green_door":
             if self.agent.green_key_number > 0:
@@ -551,31 +540,34 @@ class Phase1:
             pass
         elif item_type == "empty":
             pass
+
     def set_the_map(self):
         agent_index = np.empty((0, 2), dtype=int)
         for row in range(self.map.shape[0]):
             agent = np.where(self.map[row] == 'EA')
             if len(agent[0]) != 0:
-                 agent_index = np.vstack((agent_index, [row, agent[0][0]]))
-                 self.agent.agent_index = agent_index
-
+                agent_index = np.vstack((agent_index, [row, agent[0][0]]))
+                self.agent.agent_index = agent_index
 
         self.map = np.array(self.agent.grid)
-        print("map",self.map)        
-        self.agent.gem_indexes = self.make_gem_indexes()        
+        print("map", self.map)
+        self.agent.gem_indexes = self.make_gem_indexes()
         self.agent.wall_indexes = self.make_wall_indexes()
-        
+
         self.agent.key_indexes = self.make_key_indexes()
-        
+
         self.agent.door_indexes = self.make_door_indexes()
-        
+
         self.agent.barbed_indexes = self.make_barbed_indexes()
         self.agent.gem_groups = self.group_gems()
-        
+
+    def main2(self):
+        print(self.find_path_for_gem_group(self.agent.gem_groups[0], (1, 2), np.array([0, 0])))
+        return Action.NOOP
 
     def main(self):
         self.set_the_map()
-        print("agent" , self.agent.agent_index[0][0] , self.agent.agent_index[0][1])
+        print("agent", self.agent.agent_index[0][0], self.agent.agent_index[0][1])
         (action, item_type, item_index) = self.calc_neighbors(
             self.agent.agent_index[0][0], self.agent.agent_index[0][1])
         self.remove_item_after_action(item_type, item_index)
