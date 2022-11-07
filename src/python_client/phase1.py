@@ -244,7 +244,6 @@ class Phase1:
         item_type = ''
         item_index = ()
         index_of_first_gem, score_of_area = self.calc_aim()
-        print(f"index_of_first_gem: {index_of_first_gem}")
         best_gem_group = ''
         neighbors = np.empty((0, 3), dtype=int)
         for i in range(i_agent - 1, i_agent + 2):
@@ -255,24 +254,50 @@ class Phase1:
 
                     if (i == i_agent and j == j_agent):
                         cost[x][y] += self.agent.agent_scores[0]
-
                     else:
+                        if i == i_agent or j == j_agent:
+                            cost[x][y] += -1
+                        else:
+                            cost[x][y] += -2
+                        if self.map[i][j] == 'W':
+                            cost[x][y] += -10000
+                        elif self.map[i][j] == 'G' or self.map[i][j] == 'R' or self.map[i][j] == 'Y':
+                            # its lock
+                            # if we have key :
+
+                            if self.map[i][j] == 'G':
+                                if self.agent.green_key_number > 0:
+                                    item_type = "unlocked_green_door"
+                                    cost[x][y] += 20
+                                    item_index = (i, j)
+                            elif self.map[i][j] == 'R':
+                                if self.agent.red_key_number > 0:
+                                    item_type = "unlocked_red_door"
+                                    cost[x][y] += 20
+                                    item_index = (i, j)
+
+                            elif self.map[i][j] == 'Y':
+                                if self.agent.yellow_key_number > 0:
+                                    item_type = "unlocked_yellow_door"
+                                    cost[x][y] += 20
+                                    item_index = (i, j)
+
+                            else:
+                                # we dont have key :
+                                cost[x][y] += -10000000
+                            neighbors = np.vstack(
+                                (neighbors, [cost[x][y], item_type, item_index]))
 
                         cost[x][y] += self.agent.agent_scores[0]
                         cost[x][y] += self.find_path_for_gem_group(
                             best_gem_group, index_of_first_gem, np.array([i, j]))
-                        print(i, j, "cost", self.find_path_for_gem_group(
-                            best_gem_group, index_of_first_gem, np.array([i, j])))
                         cost[x][y] += score_of_area
 
                         if self.map[i][j] == 'E':
                             item_type = "empty"
-                            item_index = (x, y)
+                            item_index = (i, j)
                             neighbors = np.vstack(
                                 (neighbors, [cost[x][y], item_type, item_index]))
-
-                        elif self.map[i][j] == 'W':
-                            cost[x][y] += -10000
 
                         elif self.map[i][j] == 'g' or self.map[i][j] == 'r' or self.map[i][j] == 'y':
 
@@ -287,39 +312,19 @@ class Phase1:
                                 item_type = "get_yellow_key"
 
                             cost[x][y] += 20
-                            item_index = (x, y)
+                            item_index = (i, j)
                             neighbors = np.vstack(
                                 (neighbors, [cost[x][y], item_type, item_index]))
 
                         elif self.map[i][j] == '*':
                             item_type = "barbed"
-                            item_index = (x, y)
+                            item_index = (i, j)
                             # if(cost[x][y] -20  > self.agent.agent_scores[0]):
-                            cost[x][y] += -20
 
                             neighbors = np.vstack(
                                 (neighbors, [cost[x][y], item_type, item_index]))
 
-                        elif self.map[i][j] == 'G' or self.map[i][j] == 'R' or self.map[i][j] == 'Y':
-                            # its lock
-                            # if we have key :
-                            cost[x][y] += 20
-                            item_index = (x, y)
-
-                            if self.map[i][j] == 'G':
-                                item_type = "unlocked_green_door"
-                            elif self.map[i][j] == 'R':
-                                item_type = "unlocked_red_door"
-                            elif self.map[i][j] == 'Y':
-                                item_type = "unlocked_yellow_door"
-                            else:
-                                # we dont have key :
-                                cost[x][y] += -10000000
-                            neighbors = np.vstack(
-                                (neighbors, [cost[x][y], item_type, item_index]))
-
-                        elif self.map[i][j] == '1' or self.map[i][j] == '2' or self.map[i][j] == '3' or self.map[i][
-                            j] == '4':
+                        elif self.map[i][j] == '1' or self.map[i][j] == '2' or self.map[i][j] == '3' or self.map[i][j] == '4':
 
                             # its GEM
                             if self.map[i][j] == '1':
@@ -341,7 +346,7 @@ class Phase1:
                                 item_type = "blue_gem"
                                 cost[x][y] += self.calc_gems_scores(
                                     '4', self.agent.prev_gem)
-                            item_index = (x, y)
+                            item_index = (i, j)
                             neighbors = np.vstack(
                                 (neighbors, [cost[x][y], item_type, item_index]))
 
@@ -480,10 +485,10 @@ class Phase1:
                 # cost = math.exp(-10000)
                 cost = -10000000
 
-
             elif path == -1:
                 # cost = math.exp(-500)
-                cost = math.pow(abs(gem_index[0] - agent_index[0]), 2) + math.pow(abs(gem_index[1] - agent_index[1]), 2)
+                cost = math.pow(abs(gem_index[0] - agent_index[0]), 2) + \
+                    math.pow(abs(gem_index[1] - agent_index[1]), 2)
                 cost = -round(math.sqrt(cost))
 
         else:
@@ -509,7 +514,6 @@ class Phase1:
                 self.agent.yellow_key_number -= 1
                 self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
-
         elif item_type == "get_green_key":
             self.agent.green_key_number += 1
             self.agent.grid[item_index[0]][item_index[1]] = 'E'
@@ -519,7 +523,6 @@ class Phase1:
         elif item_type == "get_yellow_key":
             self.agent.yellow_key_number += 1
             self.agent.grid[item_index[0]][item_index[1]] = 'E'
-
 
         elif item_type == "green_gem":
             self.agent.prev_gem = '2'
@@ -562,12 +565,14 @@ class Phase1:
         self.agent.gem_groups = self.group_gems()
 
     def main2(self):
-        print(self.find_path_for_gem_group(self.agent.gem_groups[0], (5, 2), np.array([0, 0])))
+        print(self.find_path_for_gem_group(
+            self.agent.gem_groups[0], (5, 2), np.array([0, 0])))
         return Action.NOOP
 
     def main(self):
         self.set_the_map()
-        print("agent", self.agent.agent_index[0][0], self.agent.agent_index[0][1])
+        print("agent", self.agent.agent_index[0]
+              [0], self.agent.agent_index[0][1])
         (action, item_type, item_index) = self.calc_neighbors(
             self.agent.agent_index[0][0], self.agent.agent_index[0][1])
         self.remove_item_after_action(item_type, item_index)
