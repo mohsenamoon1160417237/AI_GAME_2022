@@ -11,18 +11,24 @@ class Phase1:
         self.height = self.agent.grid_height
         self.width = self.agent.grid_width
         self.map = np.array(self.agent.grid)
-        if 'gem_indexes' not in self.agent.__dict__:  # int
-            self.agent.gem_indexes = self.make_gem_indexes()
-        if 'wall_indexes' not in self.agent.__dict__:  # int
-            self.agent.wall_indexes = self.make_wall_indexes()
-        if 'key_indexes' not in self.agent.__dict__:  # str
-            self.agent.key_indexes = self.make_key_indexes()
-        if 'door_indexes' not in self.agent.__dict__:  # str
-            self.agent.door_indexes = self.make_door_indexes()
-        if 'barbed_indexes' not in self.agent.__dict__:  # int
-            self.agent.barbed_indexes = self.make_barbed_indexes()
-        if 'gem_groups' not in self.agent.__dict__:  # int
-            self.agent.gem_groups = self.group_gems()
+        if 'index_of_first_gem' not in self.agent.__dict__:
+            self.agent.index_of_first_gem = None
+        if 'score_of_area' not in self.agent.__dict__:
+            self.agent.score_of_area = None
+        if 'score_of_area' not in self.agent.__dict__:
+                self.agent.score_of_area = None
+        # if 'gem_indexes' not in self.agent.__dict__:  # int
+        #     self.agent.gem_indexes = self.make_gem_indexes()
+        # if 'wall_indexes' not in self.agent.__dict__:  # int
+        #     self.agent.wall_indexes = self.make_wall_indexes()
+        # if 'key_indexes' not in self.agent.__dict__:  # str
+        #     self.agent.key_indexes = self.make_key_indexes()
+        # if 'door_indexes' not in self.agent.__dict__:  # str
+        #     self.agent.door_indexes = self.make_door_indexes()
+        # if 'barbed_indexes' not in self.agent.__dict__:  # int
+        #     self.agent.barbed_indexes = self.make_barbed_indexes()
+        # if 'gem_groups' not in self.agent.__dict__:  # int
+        #     self.agent.gem_groups = self.group_gems()
         if 'prev_gem' not in self.agent.__dict__:
             self.agent.prev_gem = None
         if 'green_key_number' not in self.agent.__dict__:
@@ -72,18 +78,23 @@ class Phase1:
             best_arrange = self.arrange_gem(
                 group[:, 2].tolist(), [self.agent.agent_scores[0]], prev_gem)
             first_gem_of_arrange = best_arrange[1]
+
+            #check if we have same gem in the first arrange
+
             index_of_first_gem_of_arrange = ()
             for i in range(0, group.shape[0]):
                 if int(group[i][2]) == int(first_gem_of_arrange):
                     index_of_first_gem_of_arrange = (group[i][0], group[i][1])
+                    break
 
             # cal distance from agent to first gem of this gem group
             cost = self.find_path_for_gem_group(
                 group, index_of_first_gem_of_arrange, self.agent.agent_index[0])
-            # print("aimt" ,index_of_first_gem_of_arrange )
-            # print("cost to aim" , cost)
+            print("aimt" ,index_of_first_gem_of_arrange )
+            print("cost to aim" , cost)
 
             cost_and_score = cost + best_arrange[0]
+            print("score of aim" , best_arrange[0])
 
             list.append(
                 (cost_and_score, best_arrange[1:], index_of_first_gem_of_arrange))
@@ -97,7 +108,9 @@ class Phase1:
         # arrange_of_area = self.find_best_area()[1]
         # index_of_first_gem = self.find_best_area()[2]
         # print(index_of_first_gem)
+        
         score_of_area, arrange_of_area, index_of_first_gem = self.find_best_area()
+        print("final aim",index_of_first_gem)
         return index_of_first_gem, score_of_area
 
     def calc_gems_scores(self, gem: str, prev_gem: str) -> int:
@@ -243,7 +256,12 @@ class Phase1:
         x = 0
         item_type = ''
         item_index = ()
-        index_of_first_gem, score_of_area = self.calc_aim()
+
+        # checking if aim doesnt change and dont calculate aim again
+        if (i_agent , j_agent) == self.agent.index_of_first_gem or self.agent.index_of_first_gem == None:
+            index_of_first_gem, score_of_area = self.calc_aim()
+            self.agent.index_of_first_gem = index_of_first_gem
+            self.agent.score_of_area = score_of_area
         best_gem_group = ''
         neighbors = np.empty((0, 3), dtype=int)
         for i in range(i_agent - 1, i_agent + 2):
@@ -287,77 +305,78 @@ class Phase1:
                                 cost[x][y] += -10000000
                             neighbors = np.vstack(
                                 (neighbors, [cost[x][y], item_type, item_index]))
+                        else:
 
-                        cost[x][y] += self.agent.agent_scores[0]
-                        cost[x][y] += self.find_path_for_gem_group(
-                            best_gem_group, index_of_first_gem, np.array([i, j]))
-                        cost[x][y] += score_of_area
+                            cost[x][y] += self.agent.agent_scores[0]
+                            cost[x][y] += self.find_path_for_gem_group(
+                                best_gem_group, self.agent.index_of_first_gem, np.array([i, j]))
+                            cost[x][y] += self.agent.score_of_area
 
-                        if self.map[i][j] == 'E':
-                            item_type = "empty"
-                            item_index = (i, j)
-                            neighbors = np.vstack(
-                                (neighbors, [cost[x][y], item_type, item_index]))
+                            if self.map[i][j] == 'E':
+                                item_type = "empty"
+                                item_index = (i, j)
+                                neighbors = np.vstack(
+                                    (neighbors, [cost[x][y], item_type, item_index]))
 
-                        elif self.map[i][j] == 'g' or self.map[i][j] == 'r' or self.map[i][j] == 'y':
+                            elif self.map[i][j] == 'g' or self.map[i][j] == 'r' or self.map[i][j] == 'y':
 
                             # its key
-                            if self.map[i][j] == 'g':
-                                item_type = "get_green_key"
+                                if self.map[i][j] == 'g':
+                                    item_type = "get_green_key"
 
-                            elif self.map[i][j] == 'r':
-                                item_type = "get_red_key"
+                                elif self.map[i][j] == 'r':
+                                    item_type = "get_red_key"
 
-                            elif self.map[i][j] == 'y':
-                                item_type = "get_yellow_key"
+                                elif self.map[i][j] == 'y':
+                                    item_type = "get_yellow_key"
 
-                            cost[x][y] += 20
-                            item_index = (i, j)
-                            neighbors = np.vstack(
-                                (neighbors, [cost[x][y], item_type, item_index]))
+                                cost[x][y] += 20
+                                item_index = (i, j)
+                                neighbors = np.vstack(
+                                    (neighbors, [cost[x][y], item_type, item_index]))
 
-                        elif self.map[i][j] == '*':
-                            item_type = "barbed"
-                            item_index = (i, j)
-                            # if(cost[x][y] -20  > self.agent.agent_scores[0]):
+                            elif self.map[i][j] == '*':
+                                item_type = "barbed"
+                                item_index = (i, j)
+                                # if(cost[x][y] -20  > self.agent.agent_scores[0]):
 
-                            neighbors = np.vstack(
-                                (neighbors, [cost[x][y], item_type, item_index]))
+                                neighbors = np.vstack(
+                                    (neighbors, [cost[x][y], item_type, item_index]))
 
-                        elif self.map[i][j] == '1' or self.map[i][j] == '2' or self.map[i][j] == '3' or self.map[i][
-                            j] == '4':
+                            elif self.map[i][j] == '1' or self.map[i][j] == '2' or self.map[i][j] == '3' or self.map[i][
+                                j] == '4':
 
-                            # its GEM
-                            if self.map[i][j] == '1':
-                                item_type = "yellow_gem"
-                                cost[x][y] += self.calc_gems_scores(
-                                    '1', self.agent.prev_gem)
+                                # its GEM
+                                if self.map[i][j] == '1':
+                                    item_type = "yellow_gem"
+                                    cost[x][y] += self.calc_gems_scores(
+                                        '1', self.agent.prev_gem)
 
-                            elif self.map[i][j] == '2':
-                                item_type = "green_gem"
-                                cost[x][y] += self.calc_gems_scores(
-                                    '2', self.agent.prev_gem)
+                                elif self.map[i][j] == '2':
+                                    item_type = "green_gem"
+                                    cost[x][y] += self.calc_gems_scores(
+                                        '2', self.agent.prev_gem)
 
-                            elif self.map[i][j] == '3':
-                                item_type = "red_gem"
-                                cost[x][y] += self.calc_gems_scores(
-                                    '3', self.agent.prev_gem)
+                                elif self.map[i][j] == '3':
+                                    item_type = "red_gem"
+                                    cost[x][y] += self.calc_gems_scores(
+                                        '3', self.agent.prev_gem)
 
-                            elif self.map[i][j] == '4':
-                                item_type = "blue_gem"
-                                cost[x][y] += self.calc_gems_scores(
-                                    '4', self.agent.prev_gem)
-                            item_index = (i, j)
-                            neighbors = np.vstack(
-                                (neighbors, [cost[x][y], item_type, item_index]))
+                                elif self.map[i][j] == '4':
+                                    item_type = "blue_gem"
+                                    cost[x][y] += self.calc_gems_scores(
+                                        '4', self.agent.prev_gem)
+                                item_index = (i, j)
+                                neighbors = np.vstack(
+                                    (neighbors, [cost[x][y], item_type, item_index]))
 
                 else:
+                    # out of boundry 
                     cost[x][y] += -10000000
 
                 y += 1
             x += 1
         print("total cost", cost)
-        print("aim", index_of_first_gem)
         action = np.argmax(cost)
         # print(action)
         # if(action == 4 and self.agent.turn_count > 0 ):
@@ -490,7 +509,7 @@ class Phase1:
                 # cost = math.exp(-500)
                 cost = math.pow(abs(gem_index[0] - agent_index[0]), 2) + \
                        math.pow(abs(gem_index[1] - agent_index[1]), 2)
-                cost = -round(math.sqrt(cost))
+                cost = -round(math.sqrt(cost)) * 100
 
         else:
             path_length = self.calc_cost_of_path(path, path[0, :], 0)
@@ -505,11 +524,11 @@ class Phase1:
         if item_type == "unlocked_green_door":
             if self.agent.green_key_number > 0:
                 self.agent.green_key_number -= 1
-                self.agent.grid[item_index[0]][item_index[1]] = 'E'
+                # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "unlocked_red_door":
             if self.agent.red_key_number > 0:
                 self.agent.red_key_number -= 1
-                self.agent.grid[item_index[0]][item_index[1]] = 'E'
+                # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "unlocked_yellow_door":
             if self.agent.yellow_key_number > 0:
                 self.agent.yellow_key_number -= 1
@@ -517,33 +536,33 @@ class Phase1:
 
         elif item_type == "get_green_key":
             self.agent.green_key_number += 1
-            self.agent.grid[item_index[0]][item_index[1]] = 'E'
+            # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "get_red_key":
             self.agent.red_key_number += 1
-            self.agent.grid[item_index[0]][item_index[1]] = 'E'
+            # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "get_yellow_key":
             self.agent.yellow_key_number += 1
-            self.agent.grid[item_index[0]][item_index[1]] = 'E'
+            # self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
         elif item_type == "green_gem":
             self.agent.prev_gem = '2'
-            self.agent.grid[item_index[0]][item_index[1]] = 'E'
+            # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "red_gem":
             self.agent.prev_gem = '3'
-            self.agent.grid[item_index[0]][item_index[1]] = 'E'
+            # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "yellow_gem":
             self.agent.prev_gem = '1'
-            self.agent.grid[item_index[0]][item_index[1]] = 'E'
+            # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "blue_gem":
             self.agent.prev_gem = '4'
-            self.agent.grid[item_index[0]][item_index[1]] = 'E'
+            # self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
-        elif item_type == "barbed":
-            pass
-        elif item_type == "wall":
-            pass
-        elif item_type == "empty":
-            pass
+        # elif item_type == "barbed":
+        #     pass
+        # elif item_type == "wall":
+        #     pass
+        # elif item_type == "empty":
+        #     pass
 
     def set_the_map(self):
         agent_index = np.empty((0, 2), dtype=int)

@@ -356,9 +356,9 @@ class FindPath:
                     if len(targets) != 0:
                         if targets not in end_point:
                             end_point.append(targets)
-            if len(end_point) == 0:
-                print("end point is empty")
-            print(f'end_point: {end_point}')
+            # if len(end_point) == 0:
+                # print("end point is empty")
+            # print(f'end_point: {end_point}')
             if tuple(path[-1, :].tolist()) == tuple(end_point[-1][0]):
                 end_point = end_point[:-1]
                 if len(end_point) == 0:
