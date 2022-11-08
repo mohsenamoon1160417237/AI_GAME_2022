@@ -7,3 +7,4 @@ __pycache__
 test.py
 server/outs.txt
 src/server/game_logs/*.json
+src/python_client/*.txt
