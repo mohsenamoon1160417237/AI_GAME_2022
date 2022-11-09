@@ -23,6 +23,79 @@ class FindPath:
         self.wall_directions = {'horiz': 0, 'vertic': 0}
         self.end_point_histories = []
         self.barbed = {'index': None, 'time': None}
+        self.end_point = [[self.gem_index]]
+
+    def search_for_encirclement(self, wall_direction: str, wall_param: int) -> Union[list, None]:
+        bridge_cell = None
+        encircle_type = None
+        if wall_direction == "col":
+            wall_col = wall_param
+            for row in range(self.height):
+                cell_index = [row, wall_col]
+                upper_cell, down_cell, left_cell, right_cell = self.search_obstacle_around_cells(
+                    np.array(cell_index))
+                if upper_cell == "wall" and left_cell == "wall":
+                    bridge_cell = cell_index
+                    encircle_type = "up-left"
+                    break
+                if right_cell == "wall" and upper_cell == "wall":
+                    bridge_cell = cell_index
+                    encircle_type = 'up-right'
+                    break
+
+        elif wall_direction == "row":
+            wall_row = wall_param
+            for col in range(self.width):
+                cell_index = [wall_row, col]
+                if cell_index in self.wall_indexes.tolist():
+                    upper_cell, down_cell, left_cell, right_cell = self.search_obstacle_around_cells(
+                        np.array(cell_index))
+                    if upper_cell == "wall" and left_cell == "wall":
+                        bridge_cell = cell_index
+
+        encirclement_indexes = []
+        if bridge_cell is not None:
+            bridge_row = bridge_cell[0]
+            bridge_col = bridge_cell[1]
+            if encircle_type == "up-left":
+                encirclement_indexes.extend([(bridge_row, cl) for cl in range(bridge_col + 1)])
+                encirclement_indexes.extend([(rw, bridge_col) for rw in range(bridge_row + 1)])
+            elif encircle_type == "up-right":
+                encirclement_indexes.extend([(bridge_row, cl) for cl in range(bridge_col, self.width)])
+                encirclement_indexes.extend([(rw, bridge_col) for rw in range(bridge_row + 1)])
+
+            empty_cells = []
+            if encircle_type == "up-left":
+                for x in range(int(bridge_row)):
+                    for y in range(int(bridge_col)):
+                        cell = (x, y)  # tuple
+                        if cell not in self.wall_indexes.tolist():
+                            empty_cells.append(cell)
+            elif encircle_type == "up-right":
+                for x in range(int(bridge_row) + 1):
+                    for y in range(int(bridge_col), self.width):
+                        cell = (x, y)  # tuple
+                        if cell not in self.wall_indexes.tolist():
+                            empty_cells.append(cell)
+
+            if self.agent_index.tolist() in empty_cells:
+                if self.gem_index in empty_cells:
+                    return None
+
+            free_cells_on_edge = [x for x in encirclement_indexes if list(x) not in self.wall_indexes.tolist()]
+            result = []
+            for index in free_cells_on_edge:
+                if index not in result:
+                    not_in_end_point = True
+                    for ls in self.end_point:
+                        if index in ls:
+                            not_in_end_point = False
+                            break
+                    if not_in_end_point:
+                        result.append(index)
+
+            if len(result) != 0:
+                return result
 
     def search_obstacle_around_cells(self, wall: np.array) -> list:
         upper_cell, down_cell, left_cell, right_cell = [None, None, None, None]
@@ -132,7 +205,7 @@ class FindPath:
         # cls.append(cells[index])
         # return cls
 
-    def search_obstacles(self, path: dict, obstacle_index, obstacle_type: str) -> list:
+    def search_obstacles(self, path: dict, obstacle_index, obstacle_type: str) -> Union[np.array, dict]:
         upper_cell, down_cell, left_cell, right_cell = self.search_obstacle_around_cells(obstacle_index)
         if obstacle_type == "wall":
             if right_cell == "wall" or left_cell == "wall":
@@ -143,10 +216,14 @@ class FindPath:
                     if "vertic" in self.wall_types:
                         self.wall_types.append("horiz")
                         self.wall_directions['horiz'] += 1
-                obstacle_row = obstacle_index[0]
-                empty_cells = self.find_empty_cells_in_row(obstacle_row)
-                nearest_cells = self.make_sorted_cells(empty_cells, path[-1, :], path)
-                return nearest_cells
+                free_cells = self.search_for_encirclement("row", obstacle_index[0])
+                if free_cells is None:
+                    obstacle_row = obstacle_index[0]
+                    empty_cells = self.find_empty_cells_in_row(obstacle_row)
+                    nearest_cells = self.make_sorted_cells(empty_cells, path[-1, :], path)
+                    return np.array(nearest_cells)
+                return {"status": "encircled",
+                        "cells": np.array(free_cells[0])}
             if upper_cell == "wall" or down_cell == "wall":
                 if self.wall_stat == 1:
                     self.wall_types.append("vertic")
@@ -155,10 +232,16 @@ class FindPath:
                     if "horiz" in self.wall_types:
                         self.wall_types.append("vertic")
                         self.wall_directions['vertic'] += 1
-                obstacle_col = obstacle_index[1]
-                empty_cells = self.find_empty_cells_in_col(obstacle_col)
-                nearest_cells = self.make_sorted_cells(empty_cells, path[-1, :], path)
-                return nearest_cells
+                free_cells = self.search_for_encirclement("col", obstacle_index[1])
+                if free_cells is None:
+                    obstacle_col = obstacle_index[1]
+                    empty_cells = self.find_empty_cells_in_col(obstacle_col)
+                    nearest_cells = self.make_sorted_cells(empty_cells, path[-1, :], path)
+                    return np.array(nearest_cells)
+
+                return {"status": "encircled",
+                        "cells": np.array(free_cells[0])}
+
         elif obstacle_type == "barbed":
             if right_cell == "barbed" or left_cell == "barbed":
                 obstacle_row = obstacle_index[0]
@@ -320,17 +403,17 @@ class FindPath:
         return result
 
     def main(self):
+        print(self.gem_index)
         now = datetime.now()
         path = np.array([self.agent_index])
-        end_point = [[self.gem_index]]
         agent_index = self.agent_index.tolist()
         for wall_index in self.wall_indexes.tolist():
             if agent_index == wall_index:
                 return 0
         while True:
-            if (datetime.now() - now).total_seconds() > 0.5:
-                return -1
-            ideal_path = self.find_ideal_path(path, end_point)
+            # if (datetime.now() - now).total_seconds() > 0.5:
+            #     return -1
+            ideal_path = self.find_ideal_path(path, self.end_point)
             path = ideal_path
             if tuple(path[-1, :].tolist()) == self.gem_index:
                 # print(self.end_point_histories)
@@ -341,25 +424,27 @@ class FindPath:
             if latest_obstacle == "wall":
                 # if not self.tested_directions['diagonal']:
                 targets = self.search_obstacles(ideal_path, self.wall['index'], "wall")
+                if isinstance(targets, dict):
+                    return targets
                 if self.wall_directions['horiz'] > 2 or self.wall_directions['vertic'] > 2:
                     # print(self.end_point_histories)
                     return 0
                 if targets is not None:
                     targets = [tuple(x.tolist()) for x in targets]
                     if len(targets) != 0:
-                        if targets not in end_point:
-                            end_point.append(targets)
+                        if targets not in self.end_point:
+                            self.end_point.append(targets)
             elif latest_obstacle == "barbed":
                 targets = self.search_obstacles(ideal_path, self.barbed['index'], "barbed")
                 if targets is not None:
                     targets = [tuple(x.tolist()) for x in targets]
                     if len(targets) != 0:
-                        if targets not in end_point:
-                            end_point.append(targets)
+                        if targets not in self.end_point:
+                            self.end_point.append(targets)
             # if len(end_point) == 0:
-                # print("end point is empty")
+            # print("end point is empty")
             # print(f'end_point: {end_point}')
-            if tuple(path[-1, :].tolist()) == tuple(end_point[-1][0]):
-                end_point = end_point[:-1]
-                if len(end_point) == 0:
-                    end_point = self.gem_index
+            if tuple(path[-1, :].tolist()) == tuple(self.end_point[-1][0]):
+                self.end_point = self.end_point[:-1]
+                if len(self.end_point) == 0:
+                    self.end_point = [[self.gem_index]]

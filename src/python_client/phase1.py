@@ -16,7 +16,7 @@ class Phase1:
         if 'score_of_area' not in self.agent.__dict__:
             self.agent.score_of_area = None
         if 'score_of_area' not in self.agent.__dict__:
-                self.agent.score_of_area = None
+            self.agent.score_of_area = None
         # if 'gem_indexes' not in self.agent.__dict__:  # int
         #     self.agent.gem_indexes = self.make_gem_indexes()
         # if 'wall_indexes' not in self.agent.__dict__:  # int
@@ -79,7 +79,7 @@ class Phase1:
                 group[:, 2].tolist(), [self.agent.agent_scores[0]], prev_gem)
             first_gem_of_arrange = best_arrange[1]
 
-            #check if we have same gem in the first arrange
+            # check if we have same gem in the first arrange
 
             index_of_first_gem_of_arrange = ()
             for i in range(0, group.shape[0]):
@@ -90,11 +90,11 @@ class Phase1:
             # cal distance from agent to first gem of this gem group
             cost = self.find_path_for_gem_group(
                 group, index_of_first_gem_of_arrange, self.agent.agent_index[0])
-            print("aimt" ,index_of_first_gem_of_arrange )
-            print("cost to aim" , cost)
+            print("aimt", index_of_first_gem_of_arrange)
+            print("cost to aim", cost)
 
             cost_and_score = cost + best_arrange[0]
-            print("score of aim" , best_arrange[0])
+            print("score of aim", best_arrange[0])
 
             list.append(
                 (cost_and_score, best_arrange[1:], index_of_first_gem_of_arrange))
@@ -108,9 +108,9 @@ class Phase1:
         # arrange_of_area = self.find_best_area()[1]
         # index_of_first_gem = self.find_best_area()[2]
         # print(index_of_first_gem)
-        
+
         score_of_area, arrange_of_area, index_of_first_gem = self.find_best_area()
-        print("final aim",index_of_first_gem)
+        print("final aim", index_of_first_gem)
         return index_of_first_gem, score_of_area
 
     def calc_gems_scores(self, gem: str, prev_gem: str) -> int:
@@ -258,7 +258,7 @@ class Phase1:
         item_index = ()
 
         # checking if aim doesnt change and dont calculate aim again
-        if (i_agent , j_agent) == self.agent.index_of_first_gem or self.agent.index_of_first_gem == None:
+        if (i_agent, j_agent) == self.agent.index_of_first_gem or self.agent.index_of_first_gem == None:
             index_of_first_gem, score_of_area = self.calc_aim()
             self.agent.index_of_first_gem = index_of_first_gem
             self.agent.score_of_area = score_of_area
@@ -320,7 +320,7 @@ class Phase1:
 
                             elif self.map[i][j] == 'g' or self.map[i][j] == 'r' or self.map[i][j] == 'y':
 
-                            # its key
+                                # its key
                                 if self.map[i][j] == 'g':
                                     item_type = "get_green_key"
 
@@ -585,8 +585,9 @@ class Phase1:
         self.agent.gem_groups = self.group_gems()
 
     def main2(self):
+        self.set_the_map()
         print(self.find_path_for_gem_group(
-            self.agent.gem_groups[0], (3, 2), np.array([3, 15])))
+            self.agent.gem_groups[0], (7, 0), np.array([0, 0])))
         return Action.NOOP
 
     def main(self):
