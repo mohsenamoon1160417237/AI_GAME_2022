@@ -411,8 +411,8 @@ class FindPath:
             if agent_index == wall_index:
                 return 0
         while True:
-            # if (datetime.now() - now).total_seconds() > 0.5:
-            #     return -1
+            if (datetime.now() - now).total_seconds() > 0.5:
+                return -1
             ideal_path = self.find_ideal_path(path, self.end_point)
             path = ideal_path
             if tuple(path[-1, :].tolist()) == self.gem_index:
