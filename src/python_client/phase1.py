@@ -19,14 +19,14 @@ class Phase1:
             self.agent.score_of_area = None
         if 'gem_indexes' not in self.agent.__dict__:  # int
             self.agent.gem_indexes = self.make_gem_indexes()
-        # if 'wall_indexes' not in self.agent.__dict__:  # int
-        #     self.agent.wall_indexes = self.make_wall_indexes()
-        # if 'key_indexes' not in self.agent.__dict__:  # str
-        #     self.agent.key_indexes = self.make_key_indexes()
-        # if 'door_indexes' not in self.agent.__dict__:  # str
-        #     self.agent.door_indexes = self.make_door_indexes()
-        # if 'barbed_indexes' not in self.agent.__dict__:  # int
-        #     self.agent.barbed_indexes = self.make_barbed_indexes()
+        if 'wall_indexes' not in self.agent.__dict__:  # int
+            self.agent.wall_indexes = self.make_wall_indexes()
+        if 'key_indexes' not in self.agent.__dict__:  # str
+            self.agent.key_indexes = self.make_key_indexes()
+        if 'door_indexes' not in self.agent.__dict__:  # str
+            self.agent.door_indexes = self.make_door_indexes()
+        if 'barbed_indexes' not in self.agent.__dict__:  # int
+            self.agent.barbed_indexes = self.make_barbed_indexes()
         if 'gem_groups' not in self.agent.__dict__:  # int
             self.agent.gem_groups = self.group_gems()
         if 'prev_gem' not in self.agent.__dict__:
@@ -546,52 +546,52 @@ class Phase1:
         elif item_type == "green_gem":
 
             self.agent.prev_gem = '2'
-            if(self.agent.gem_groups[0].shape[0] > 0) :
-                best_gem_group = self.agent.gem_groups[0]
-                particular_row = np.array([item_index[0] , item_index[1] , 2 ])
-                for row in range(best_gem_group.shape[0]) :
-                    if best_gem_group[row ,:].tolist() == particular_row.tolist() :
-                        self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
-                        break
-            else:
-                self.agent.gem_groups.pop(0)
+            # if(self.agent.gem_groups[0].shape[0] > 0) :
+            #     best_gem_group = self.agent.gem_groups[0]
+            #     particular_row = np.array([item_index[0] , item_index[1] , 2 ])
+            #     for row in range(best_gem_group.shape[0]) :
+            #         if best_gem_group[row ,:].tolist() == particular_row.tolist() :
+            #             self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
+            #             break
+            # else:
+            #     self.agent.gem_groups.pop(0)
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "red_gem":
             self.agent.prev_gem = '3'
-            if(self.agent.gem_groups[0].shape[0] > 0) :
-                best_gem_group = self.agent.gem_groups[0]
-                particular_row = np.array([item_index[0] , item_index[1] , 3 ])
-                for row in range(best_gem_group.shape[0]) :
-                    if best_gem_group[row ,:].tolist() == particular_row.tolist() :
-                        self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
-                        break
-            else:
-                self.agent.gem_groups.pop(0)
+            # if(self.agent.gem_groups[0].shape[0] > 0) :
+            #     best_gem_group = self.agent.gem_groups[0]
+            #     particular_row = np.array([item_index[0] , item_index[1] , 3 ])
+            #     for row in range(best_gem_group.shape[0]) :
+            #         if best_gem_group[row ,:].tolist() == particular_row.tolist() :
+            #             self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
+            #             break
+            # else:
+            #     self.agent.gem_groups.pop(0)
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "yellow_gem":
             self.agent.prev_gem = '1'
-            if(self.agent.gem_groups[0].shape[0] > 0) :
-                best_gem_group = self.agent.gem_groups[0]
-                particular_row = np.array([item_index[0] , item_index[1] , 1 ])
-                for row in range(best_gem_group.shape[0]) :
-                    if best_gem_group[row ,:].tolist() == particular_row.tolist() :
-                        self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
-                        break
-            else:
-                self.agent.gem_groups.pop(0)          
+            # if(self.agent.gem_groups[0].shape[0] > 0) :
+            #     best_gem_group = self.agent.gem_groups[0]
+            #     particular_row = np.array([item_index[0] , item_index[1] , 1 ])
+            #     for row in range(best_gem_group.shape[0]) :
+            #         if best_gem_group[row ,:].tolist() == particular_row.tolist() :
+            #             self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
+            #             break
+            # else:
+            #     self.agent.gem_groups.pop(0)          
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "blue_gem":
             self.agent.prev_gem = '4'
-            if(self.agent.gem_groups[0].shape[0] > 0) :
-                best_gem_group = self.agent.gem_groups[0]
-                particular_row = np.array([item_index[0] , item_index[1] , 4 ])
-                for row in range(best_gem_group.shape[0]) :
-                    if best_gem_group[row ,:].tolist() == particular_row.tolist() :
-                        self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
-                        break
+            # if(self.agent.gem_groups[0].shape[0] > 0) :
+            #     best_gem_group = self.agent.gem_groups[0]
+            #     particular_row = np.array([item_index[0] , item_index[1] , 4 ])
+            #     for row in range(best_gem_group.shape[0]) :
+            #         if best_gem_group[row ,:].tolist() == particular_row.tolist() :
+            #             self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
+            #             break
                 
-            else:
-                self.agent.gem_groups.pop(0)
+            # else:
+            #     self.agent.gem_groups.pop(0)
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
         # elif item_type == "barbed":
@@ -619,7 +619,8 @@ class Phase1:
         self.agent.door_indexes = self.make_door_indexes()
 
         self.agent.barbed_indexes = self.make_barbed_indexes()
-        print("gemgroup: ", self.agent.gem_groups)
+        self.agent.gem_groups = self.group_gems()
+        # print("gemgroup: ", self.agent.gem_groups)
 
     def main2(self):
         self.set_the_map()
