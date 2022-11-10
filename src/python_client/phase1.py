@@ -31,6 +31,10 @@ class Phase1:
             self.agent.gem_groups = self.group_gems()
         if 'prev_gem' not in self.agent.__dict__:
             self.agent.prev_gem = None
+        if 'escape_index' not in self.agent.__dict__:
+            self.agent.escape_index = []
+        if 'explore_set' not in self.agent.__dict__:
+            self.agent.explore_set = []
         if 'green_key_number' not in self.agent.__dict__:
             self.agent.green_key_number = 0
         if 'yellow_key_number' not in self.agent.__dict__:
@@ -90,6 +94,7 @@ class Phase1:
             # cal distance from agent to first gem of this gem group
             cost = self.find_path_for_gem_group(
                 group, index_of_first_gem_of_arrange, self.agent.agent_index[0])
+            # cost = self.calc_manhatan_distances(self.agent.agent_index[0] ,index_of_first_gem_of_arrange )
             print("aimt", index_of_first_gem_of_arrange)
             print("cost to aim", cost)
 
@@ -236,6 +241,7 @@ class Phase1:
     def calc_manhatan_distances(self , src , dest) -> int:
         sum = math.pow(abs(dest[0] - src[0]), 2) + math.pow(abs(dest[1] - src[1]), 2)
         return round(math.sqrt(sum)) 
+        # return math.exp(-(math.sqrt(sum)) )
 
 
 
@@ -260,6 +266,10 @@ class Phase1:
             for j in range(j_agent - 1, j_agent + 2):
 
                 if i != -1 and j != -1 and j != self.width and i != self.height :
+                    # if len(self.agent.explore_set) > 0 :
+                    #     for index in self.agent.explore_set :
+                    #         if index == (i,j) :
+                    #             cost[x][y] -= 10
 
                     if (i == i_agent and j == j_agent):
                         cost[x][y] += self.agent.agent_scores[0]
@@ -277,20 +287,30 @@ class Phase1:
                             if self.map[i][j] == 'G':
                                 if self.agent.green_key_number > 0:
                                     item_type = "unlocked_green_door"
-                                    cost[x][y] += 20
                                     item_index = (i, j)
+                                    cost[x][y] += self.agent.agent_scores[0]
+                                    cost[x][y] += self.find_path_for_gem_group(
+                                        best_gem_group, self.agent.index_of_first_gem, np.array([i, j]))
+                                    # cost[x][y] += self.calc_manhatan_distances((i,j) , self.agent.index_of_first_gem)
+                                    cost[x][y] += self.agent.score_of_area                                    
                             elif self.map[i][j] == 'R':
                                 if self.agent.red_key_number > 0:
                                     item_type = "unlocked_red_door"
-                                    cost[x][y] += 20
                                     item_index = (i, j)
-
+                                    cost[x][y] += self.agent.agent_scores[0]
+                                    cost[x][y] += self.find_path_for_gem_group(
+                                        best_gem_group, self.agent.index_of_first_gem, np.array([i, j]))
+                                    # cost[x][y] += self.calc_manhatan_distances((i,j) , self.agent.index_of_first_gem)
+                                    cost[x][y] += self.agent.score_of_area     
                             elif self.map[i][j] == 'Y':
                                 if self.agent.yellow_key_number > 0:
                                     item_type = "unlocked_yellow_door"
-                                    cost[x][y] += 20
                                     item_index = (i, j)
-
+                                    cost[x][y] += self.agent.agent_scores[0]
+                                    cost[x][y] += self.find_path_for_gem_group(
+                                        best_gem_group, self.agent.index_of_first_gem, np.array([i, j]))
+                                    # cost[x][y] += self.calc_manhatan_distances((i,j) , self.agent.index_of_first_gem)
+                                    cost[x][y] += self.agent.score_of_area     
                             else:
                                 # we dont have key :
                                 cost[x][y] += -10000000
@@ -301,6 +321,7 @@ class Phase1:
                             cost[x][y] += self.agent.agent_scores[0]
                             cost[x][y] += self.find_path_for_gem_group(
                                 best_gem_group, self.agent.index_of_first_gem, np.array([i, j]))
+                            # cost[x][y] += self.calc_manhatan_distances((i,j) , self.agent.index_of_first_gem)
                             cost[x][y] += self.agent.score_of_area
 
                             if self.map[i][j] == 'E':
@@ -469,7 +490,29 @@ class Phase1:
         for row in range(self.agent.barbed_indexes.shape[0]):
             if self.agent.barbed_indexes[row][0] == i and self.agent.barbed_indexes[row][1] == j:
                 cost += 20
+        # checking for door indexes :
+        for row in range(self.agent.door_indexes.shape[0]):
+            if int(self.agent.door_indexes[row][0]) == i and int(self.agent.door_indexes[row][1]) == j:
+                color_of_door = self.map[i][j]
+                # print("color",self.map[i][j])
+                if color_of_door == 'G':
+                    if self.agent.green_key_number > 0 :
+                        cost += 0
+                    else:
+                        cost += 1000000
+                if color_of_door == 'R':
+                    if self.agent.red_key_number > 0 :
+                        cost += 0
+                    else:
+                        cost += 1000000
+                if color_of_door == 'Y':
+                    if self.agent.yellow_key_number > 0 :
+                        cost += 0
+                    else:
+                        cost += 1000000
 
+                    
+                
                 # print("barbed" , self.agent.barbed_indexes)
         prev_index = new_path[0, :]
         cost = self.calc_cost_of_path(new_path, prev_index, cost)
@@ -496,13 +539,109 @@ class Phase1:
         print("src:", agent_index)
         print("destination:", gem_index)
         print("path:", path)
+        if len(self.agent.escape_index) > 0:
+            first = self.agent.escape_index[0]
+            second = self.agent.escape_index[1]
+            (i,j)=agent_index
+            if (i,j) == first  :
+                find_path = FindPath(gem_group, second, np.array(first), self.agent.wall_indexes,
+                             self.agent.barbed_indexes, self.agent.door_indexes, self.width, self.height)
+                p = find_path.main()    
+                if type(p) != np.ndarray:
+                    if p == 0:
+                        # cost = math.exp(-10000)
+                        cost2 = -10000000
+
+                    elif p == -1:
+                        # cost = math.exp(-500)
+                        cost2 = - self.calc_manhatan_distances( first, second) * 10000
+
+                else:
+                    path_length = self.calc_cost_of_path(p, p[0, :], 0) 
+                    cost2 = path_length * -1   
+                find_path = FindPath(gem_group, gem_index, np.array(second), self.agent.wall_indexes,
+                             self.agent.barbed_indexes, self.agent.door_indexes, self.width, self.height)
+
+                p = find_path.main()        
+                if type(p) != np.ndarray:
+                    if p == 0:
+                        # cost = math.exp(-10000)
+                        cost3 = -10000000
+
+                    elif p == -1:
+                        # cost = math.exp(-500)
+                        cost3 = - self.calc_manhatan_distances( second, gem_index) * 10000
+
+                else:
+                    path_length = self.calc_cost_of_path(p, p[0, :], 0) 
+                    cost3 = path_length * -1    
+                return cost2+cost3   
+                
+
         if type(path) == dict :
             if path['status'] == 'encircled':
-                cost1 = -self.calc_manhatan_distances( agent_index, path['cells'][1])
-                cost2 = -self.calc_manhatan_distances(  path['cells'][1]  ,gem_index)
+                if len(self.agent.escape_index) != 2:
+                    self.agent.escape_index.append(path['cells'][0])
+                    self.agent.escape_index.append(path['cells'][1])
+                # print("escape",self.agent.escape_index)
+                find_path = FindPath(gem_group, path['cells'][0], np.array(agent_index), self.agent.wall_indexes,
+                             self.agent.barbed_indexes, self.agent.door_indexes, self.width, self.height)
+
+                p = find_path.main()               
+                if type(p) != np.ndarray:
+                    if p == 0:
+                        # cost = math.exp(-10000)
+                        cost1 = -10000000
+
+                    elif p == -1:
+                        # cost = math.exp(-500)
+                        cost1 = - self.calc_manhatan_distances( agent_index,  path['cells'][0]) * 10000
+
+                else:
+                    path_length = self.calc_cost_of_path(p, p[0, :], 0) 
+                    cost1 = path_length * -1  
+                ###############################
 
 
-            cost = cost1+cost2
+                find_path = FindPath(gem_group, path['cells'][1], np.array(path['cells'][0]), self.agent.wall_indexes,
+                             self.agent.barbed_indexes, self.agent.door_indexes, self.width, self.height)
+                p = find_path.main()   
+                if type(p) != np.ndarray:
+                    if p == 0:
+                        # cost = math.exp(-10000)
+                        cost2 = -10000000
+
+                    elif p == -1:
+                        # cost = math.exp(-500)
+                        cost2 = - self.calc_manhatan_distances( path['cells'][0], path['cells'][1]) * 10000
+
+                else:
+                    path_length = self.calc_cost_of_path(p, p[0, :], 0) 
+                    cost2 = path_length * -1     
+   
+                ###############################
+                find_path = FindPath(gem_group, gem_index, np.array(path['cells'][1]), self.agent.wall_indexes,
+                             self.agent.barbed_indexes, self.agent.door_indexes, self.width, self.height)
+
+                p = find_path.main()      
+                if type(p) != np.ndarray:
+                    if p == 0:
+                        # cost = math.exp(-10000)
+                        cost3 = -10000000
+
+                    elif p == -1:
+                        # cost = math.exp(-500)
+                        cost3 = - self.calc_manhatan_distances( np.array(path['cells'][1]), gem_index) * 10000
+
+                else:
+                    path_length = self.calc_cost_of_path(p, p[0, :], 0) 
+                    cost3 = path_length * -1                            
+
+                # cost1 = -self.calc_manhatan_distances( agent_index, path['cells'][1])
+                # cost2 = -self.calc_manhatan_distances(  path['cells'][1]  ,gem_index)
+
+
+            cost = cost1+cost2+cost3
 
         elif type(path) != np.ndarray:
             if path == 0:
@@ -511,7 +650,7 @@ class Phase1:
 
             elif path == -1:
                 # cost = math.exp(-500)
-                cost = - self.calc_manhatan_distances( agent_index, gem_index) 
+                cost = - self.calc_manhatan_distances( agent_index, gem_index) * 10000000
 
         else:
             path_length = self.calc_cost_of_path(path, path[0, :], 0)
@@ -522,6 +661,8 @@ class Phase1:
         return cost
 
     def remove_item_after_action(self, item_type: str, item_index: np.array):
+
+        self.agent.explore_set.append(item_index)
 
         if item_type == "unlocked_green_door":
             if self.agent.green_key_number > 0:
@@ -632,7 +773,7 @@ class Phase1:
     def main2(self):
         self.set_the_map()
         print(self.find_path_for_gem_group(
-            self.agent.gem_groups[0], (7, 0), np.array([0, 0])))
+            self.agent.gem_groups[0], (2, 20), np.array([1, 4])))
         return Action.NOOP
 
     def main(self):

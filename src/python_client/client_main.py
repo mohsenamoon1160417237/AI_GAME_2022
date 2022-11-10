@@ -11,6 +11,7 @@ class Agent(BaseAgent):
         now1 = datetime.datetime.now()
         phase1 = Phase1(self)
         action = phase1.main()
+        # action = phase1.main2()
         now2 = datetime.datetime.now()
         print(f'total_seconds: {(now2 - now1).total_seconds()}')
         return action
