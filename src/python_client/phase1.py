@@ -237,6 +237,8 @@ class Phase1:
         sum = math.pow(abs(dest[0] - src[0]), 2) + math.pow(abs(dest[1] - src[1]), 2)
         return round(math.sqrt(sum)) 
 
+
+
     # calc neighbor is done except color home
     def calc_neighbors(self, i_agent, j_agent) -> np.array:
         # calculate cost from initial state to next state
@@ -248,18 +250,16 @@ class Phase1:
         item_type = ''
         item_index = ()
 
-        # checking if aim doesnt change and dont calculate aim again
-        if (i_agent, j_agent) == self.agent.index_of_first_gem or self.agent.index_of_first_gem == None:
-            index_of_first_gem, score_of_area = self.calc_aim()
-            self.agent.index_of_first_gem = index_of_first_gem
-            self.agent.score_of_area = score_of_area
+        index_of_first_gem, score_of_area = self.calc_aim()
+        self.agent.index_of_first_gem = index_of_first_gem
+        self.agent.score_of_area = score_of_area        
         best_gem_group = ''
         neighbors = np.empty((0, 3), dtype=int)
         for i in range(i_agent - 1, i_agent + 2):
             y = 0
             for j in range(j_agent - 1, j_agent + 2):
 
-                if i != -1 and j != -1 and j != self.width and i != self.height:
+                if i != -1 and j != -1 and j != self.width and i != self.height :
 
                     if (i == i_agent and j == j_agent):
                         cost[x][y] += self.agent.agent_scores[0]
@@ -482,6 +482,12 @@ class Phase1:
         # cost = math.pow(abs(gem_index[0] - agent_index[0]),2) + math.pow(abs(gem_index[1] - agent_index[1]),2)
         # return math.exp(-math.sqrt(cost))
 
+
+        # find_path = FindPath(gem_group, (7,0), np.array([1,4]), self.agent.wall_indexes,
+        #                      self.agent.barbed_indexes, self.agent.door_indexes, self.width, self.height)
+
+        # if agent_index.tolist() == self.agent.escape_index :
+        #     return 
         find_path = FindPath(gem_group, gem_index, agent_index, self.agent.wall_indexes,
                              self.agent.barbed_indexes, self.agent.door_indexes, self.width, self.height)
 
@@ -492,10 +498,11 @@ class Phase1:
         print("path:", path)
         if type(path) == dict :
             if path['status'] == 'encircled':
-                cost1 = -self.calc_manhatan_distances( agent_index, path['cells'])
-                cost2 = -self.calc_manhatan_distances( path['cells'] , gem_index)
-                total_cost = cost1+cost2
-            cost = total_cost
+                cost1 = -self.calc_manhatan_distances( agent_index, path['cells'][1])
+                cost2 = -self.calc_manhatan_distances(  path['cells'][1]  ,gem_index)
+
+
+            cost = cost1+cost2
 
         elif type(path) != np.ndarray:
             if path == 0:
@@ -504,14 +511,14 @@ class Phase1:
 
             elif path == -1:
                 # cost = math.exp(-500)
-                cost = - self.calc_manhatan_distances( agent_index, gem_index) * 100
+                cost = - self.calc_manhatan_distances( agent_index, gem_index) 
 
         else:
             path_length = self.calc_cost_of_path(path, path[0, :], 0)
 
             cost = path_length * -1
             # cost = math.exp(-path_length)
-        # print("path cost:", cost)
+        print("path cost:", cost)
         return cost
 
     def remove_item_after_action(self, item_type: str, item_index: np.array):
@@ -629,6 +636,12 @@ class Phase1:
         return Action.NOOP
 
     def main(self):
+
+        # print("prev gem :", self.agent.prev_gem)
+        # if self.agent.escape_index != None and self.agent.agent_index.tolist() == self.agent.escape_index:
+        #     self.agent.grid[self.agent.escape_index[0]][self.agent.escape_index[1]] = 'W'
+
+        
         
         self.set_the_map()
         print("agent", self.agent.agent_index[0]
