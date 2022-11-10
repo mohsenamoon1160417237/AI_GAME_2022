@@ -17,8 +17,8 @@ class Phase1:
             self.agent.score_of_area = None
         if 'score_of_area' not in self.agent.__dict__:
             self.agent.score_of_area = None
-        # if 'gem_indexes' not in self.agent.__dict__:  # int
-        #     self.agent.gem_indexes = self.make_gem_indexes()
+        if 'gem_indexes' not in self.agent.__dict__:  # int
+            self.agent.gem_indexes = self.make_gem_indexes()
         # if 'wall_indexes' not in self.agent.__dict__:  # int
         #     self.agent.wall_indexes = self.make_wall_indexes()
         # if 'key_indexes' not in self.agent.__dict__:  # str
@@ -27,8 +27,8 @@ class Phase1:
         #     self.agent.door_indexes = self.make_door_indexes()
         # if 'barbed_indexes' not in self.agent.__dict__:  # int
         #     self.agent.barbed_indexes = self.make_barbed_indexes()
-        # if 'gem_groups' not in self.agent.__dict__:  # int
-        #     self.agent.gem_groups = self.group_gems()
+        if 'gem_groups' not in self.agent.__dict__:  # int
+            self.agent.gem_groups = self.group_gems()
         if 'prev_gem' not in self.agent.__dict__:
             self.agent.prev_gem = None
         if 'green_key_number' not in self.agent.__dict__:
@@ -233,18 +233,9 @@ class Phase1:
                 barbed_indexes = np.vstack((barbed_indexes, [row, col]))
         return barbed_indexes
 
-    def calc_gem_group_distances(self) -> np.array:
-        distances = np.array([])
-        agent_row = self.agent.agent_index[0][0]
-        agent_col = self.agent.agent_index[0][1]
-        for group in self.agent.gems_arrangement:
-            gem_row, gem_col = group[2]
-            dist_sum = np.sum(
-                [np.power((gem_row - agent_row), 2), np.power((gem_col - agent_col), 2)])
-            distance = np.sqrt(dist_sum)
-            distances = np.append(distances, distance)
-
-        return distances
+    def calc_manhatan_distances(self , src , dest) -> int:
+        sum = math.pow(abs(dest[0] - src[0]), 2) + math.pow(abs(dest[1] - src[1]), 2)
+        return round(math.sqrt(sum)) 
 
     # calc neighbor is done except color home
     def calc_neighbors(self, i_agent, j_agent) -> np.array:
@@ -499,17 +490,21 @@ class Phase1:
         print("src:", agent_index)
         print("destination:", gem_index)
         print("path:", path)
+        if type(path) == dict :
+            if path['status'] == 'encircled':
+                cost1 = -self.calc_manhatan_distances( agent_index, path['cells'])
+                cost2 = -self.calc_manhatan_distances( path['cells'] , gem_index)
+                total_cost = cost1+cost2
+            cost = total_cost
 
-        if type(path) != np.ndarray:
+        elif type(path) != np.ndarray:
             if path == 0:
                 # cost = math.exp(-10000)
                 cost = -10000000
 
             elif path == -1:
                 # cost = math.exp(-500)
-                cost = math.pow(abs(gem_index[0] - agent_index[0]), 2) + \
-                       math.pow(abs(gem_index[1] - agent_index[1]), 2)
-                cost = -round(math.sqrt(cost)) * 100
+                cost = - self.calc_manhatan_distances( agent_index, gem_index) * 100
 
         else:
             path_length = self.calc_cost_of_path(path, path[0, :], 0)
@@ -532,29 +527,71 @@ class Phase1:
         elif item_type == "unlocked_yellow_door":
             if self.agent.yellow_key_number > 0:
                 self.agent.yellow_key_number -= 1
-                self.agent.grid[item_index[0]][item_index[1]] = 'E'
+                # self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
         elif item_type == "get_green_key":
             self.agent.green_key_number += 1
+
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "get_red_key":
             self.agent.red_key_number += 1
+
+
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "get_yellow_key":
             self.agent.yellow_key_number += 1
+
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
         elif item_type == "green_gem":
+
             self.agent.prev_gem = '2'
+            if(self.agent.gem_groups[0].shape[0] > 0) :
+                best_gem_group = self.agent.gem_groups[0]
+                particular_row = np.array([item_index[0] , item_index[1] , 2 ])
+                for row in range(best_gem_group.shape[0]) :
+                    if best_gem_group[row ,:].tolist() == particular_row.tolist() :
+                        self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
+                        break
+            else:
+                self.agent.gem_groups.pop(0)
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "red_gem":
             self.agent.prev_gem = '3'
+            if(self.agent.gem_groups[0].shape[0] > 0) :
+                best_gem_group = self.agent.gem_groups[0]
+                particular_row = np.array([item_index[0] , item_index[1] , 3 ])
+                for row in range(best_gem_group.shape[0]) :
+                    if best_gem_group[row ,:].tolist() == particular_row.tolist() :
+                        self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
+                        break
+            else:
+                self.agent.gem_groups.pop(0)
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "yellow_gem":
             self.agent.prev_gem = '1'
+            if(self.agent.gem_groups[0].shape[0] > 0) :
+                best_gem_group = self.agent.gem_groups[0]
+                particular_row = np.array([item_index[0] , item_index[1] , 1 ])
+                for row in range(best_gem_group.shape[0]) :
+                    if best_gem_group[row ,:].tolist() == particular_row.tolist() :
+                        self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
+                        break
+            else:
+                self.agent.gem_groups.pop(0)          
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
         elif item_type == "blue_gem":
             self.agent.prev_gem = '4'
+            if(self.agent.gem_groups[0].shape[0] > 0) :
+                best_gem_group = self.agent.gem_groups[0]
+                particular_row = np.array([item_index[0] , item_index[1] , 4 ])
+                for row in range(best_gem_group.shape[0]) :
+                    if best_gem_group[row ,:].tolist() == particular_row.tolist() :
+                        self.agent.gem_groups[0] = np.delete(self.agent.gem_groups[0] , row , axis=0)
+                        break
+                
+            else:
+                self.agent.gem_groups.pop(0)
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
         # elif item_type == "barbed":
@@ -582,7 +619,7 @@ class Phase1:
         self.agent.door_indexes = self.make_door_indexes()
 
         self.agent.barbed_indexes = self.make_barbed_indexes()
-        self.agent.gem_groups = self.group_gems()
+        print("gemgroup: ", self.agent.gem_groups)
 
     def main2(self):
         self.set_the_map()
@@ -591,6 +628,7 @@ class Phase1:
         return Action.NOOP
 
     def main(self):
+        
         self.set_the_map()
         print("agent", self.agent.agent_index[0]
         [0], self.agent.agent_index[0][1])
