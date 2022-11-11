@@ -101,9 +101,20 @@ class Phase1:
             cost_and_score = cost + best_arrange[0]
             print("score of aim", best_arrange[0])
 
+            
+
             list.append(
                 (cost_and_score, best_arrange[1:], index_of_first_gem_of_arrange))
         list.sort(key=lambda a: a[0], reverse=True)
+        if list[0][0] < 0 and self.agent.gem_indexes.shape[0] > 0:
+            for row in range(self.agent.key_indexes.shape[0]) :
+                index_of_key = (int(self.agent.key_indexes[row][0]) , int(self.agent.key_indexes[row][1]))
+                cost_to_key = self.find_path_for_gem_group(
+                    group, index_of_key, self.agent.agent_index[0]) + 60 
+                list.append( (cost_to_key  , None , index_of_key) )
+                print("key", index_of_key)
+                print("cost to key", cost_to_key)
+            list.sort(key=lambda a: a[0], reverse=True)
         self.agent.gems_arrangement = list
         # print(list)
         return list[0]
@@ -632,6 +643,8 @@ class Phase1:
                     elif p == -1:
                         # cost = math.exp(-500)
                         cost3 = - self.calc_manhatan_distances( np.array(path['cells'][1]), gem_index) * 10000
+                    else:
+                        cost3 = - self.calc_manhatan_distances( np.array(path['cells'][1]), gem_index) * 10000
 
                 else:
                     path_length = self.calc_cost_of_path(p, p[0, :], 0) 
@@ -641,7 +654,7 @@ class Phase1:
                 # cost2 = -self.calc_manhatan_distances(  path['cells'][1]  ,gem_index)
 
 
-            cost = cost1+cost2+cost3
+                cost = cost1+cost2+cost3
 
         elif type(path) != np.ndarray:
             if path == 0:
@@ -664,20 +677,20 @@ class Phase1:
 
         self.agent.explore_set.append(item_index)
 
-        if item_type == "unlocked_green_door":
-            if self.agent.green_key_number > 0:
-                self.agent.green_key_number -= 1
+        # if item_type == "unlocked_green_door":
+        #     if self.agent.green_key_number > 0:
+        #         self.agent.green_key_number -= 1
                 # self.agent.grid[item_index[0]][item_index[1]] = 'E'
-        elif item_type == "unlocked_red_door":
-            if self.agent.red_key_number > 0:
-                self.agent.red_key_number -= 1
+        # elif item_type == "unlocked_red_door":
+        #     if self.agent.red_key_number > 0:
+        #         self.agent.red_key_number -= 1
                 # self.agent.grid[item_index[0]][item_index[1]] = 'E'
-        elif item_type == "unlocked_yellow_door":
-            if self.agent.yellow_key_number > 0:
-                self.agent.yellow_key_number -= 1
+        # elif item_type == "unlocked_yellow_door":
+        #     if self.agent.yellow_key_number > 0:
+        #         self.agent.yellow_key_number -= 1
                 # self.agent.grid[item_index[0]][item_index[1]] = 'E'
 
-        elif item_type == "get_green_key":
+        if item_type == "get_green_key":
             self.agent.green_key_number += 1
 
             # self.agent.grid[item_index[0]][item_index[1]] = 'E'
@@ -773,7 +786,7 @@ class Phase1:
     def main2(self):
         self.set_the_map()
         print(self.find_path_for_gem_group(
-            self.agent.gem_groups[0], (2, 20), np.array([1, 4])))
+            self.agent.gem_groups[0], (0, 12), np.array([4, 3])))
         return Action.NOOP
 
     def main(self):
