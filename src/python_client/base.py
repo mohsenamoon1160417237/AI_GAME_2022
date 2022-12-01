@@ -5,9 +5,9 @@ import socket
 import numpy as np
 
 
-def read_utf(connection: socket.socket):
+def read_utf(connection: socket.socket,bufsize=2048):
     # length = struct.unpack('>H', connection.recv(2))[0]
-    val = connection.recv(2048).decode('utf-8').strip().splitlines()
+    val = connection.recv(bufsize).decode('utf-8').strip().splitlines()
     return val[-1]
 
 
@@ -33,7 +33,6 @@ class Action(enum.Enum):
     DOWN_RIGHT = "DOWN_RIGHT"
     DOWN_LEFT = "DOWN_LEFT"
     NOOP = 'NOOP'
-    # TELEPORT = 'TELEPORT'
 
 
 class BaseAgent(metaclass=abc.ABCMeta):
@@ -42,8 +41,18 @@ class BaseAgent(metaclass=abc.ABCMeta):
         config_path = "client_config.json"
         self.config = get_config(config_path=config_path)
         self.connection = self.connect()
-        data = read_utf(self.connection)
-        height, width, character, agent_id, agent_score, max_turn_count, agent_count = data.strip().split(" ")
+        data = read_utf(self.connection,bufsize=1024*10)
+        data = json.loads(str(data))
+        height=data["height"]
+        width=data["width"]
+        character=data["character"]
+        agent_id=data["id"]
+        agent_score=data["score"]
+        max_turn_count=data["max_turn_count"]
+        agent_count=data["agent_count"]
+        probabilities = data["probabilities"]
+        # height, width, character, agent_id, agent_score, max_turn_count, agent_count ,*probes = data.strip().split(
+        #     " ")
         self.grid_height = int(height)
         self.grid_width = int(width)
         self.grid = None
@@ -54,6 +63,7 @@ class BaseAgent(metaclass=abc.ABCMeta):
         self.agent_count = int(agent_count)
         self.turn_count = 0
         self.agent_scores = []
+        self.probabilities = probabilities
         write_utf(self.connection, msg="CONFIRM")
 
     def connect(self):
@@ -73,7 +83,6 @@ class BaseAgent(metaclass=abc.ABCMeta):
     def play(self):
         if self.connection is None:
             self.connect()
-
         while True:
             data = read_utf(self.connection)
             if "finish!" in data:

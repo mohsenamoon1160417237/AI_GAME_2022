@@ -1,14 +1,13 @@
 import json
-import numpy as np
+
+from logics.map import Map, Tile
+from logics.agent import Agent
+from logics.actions import Actions
 import random
+import numpy as np
+from logics import Exceptions, game_rules
 from datetime import datetime
-
-from .map import Map, Tile
-from .agent import Agent
-from .actions import Actions
-
-from . import Exceptions, game_rules
-from .utils import bcolors
+from logics.utils import bcolors
 
 
 class Game:
@@ -52,8 +51,11 @@ class Game:
 
     def do_turn_init(self, agent):
         height, width = self.game_map.tiles.shape
-        content = f"{height} {width} {agent.character} {agent.id} {agent.score} {self.max_turn_count} {len(self.agents)} "
-        agent.connection.write_utf(msg=content)
+        content = {"height": height, "width": width, "character": agent.character, "id": agent.id, "score": agent.score,
+                   "max_turn_count": self.max_turn_count, "agent_count": len(self.agents),
+                   "probabilities": game_rules.PROBABILITIES}
+        # content = f"{height} {width} {agent.character} {agent.id} {agent.score} {self.max_turn_count} {len(self.agents)} "
+        agent.connection.write_utf(msg=str(json.dumps(content)))
         confirm_data = agent.connection.read_data()
         if confirm_data is None or confirm_data.lower() != "confirm":
             raise Exception(f"agent with id={agent.id} not send confirm")
@@ -160,8 +162,34 @@ class Game:
                                               tile_address=agent.tile.address)
         return target
 
+    def get_probabilities(self, tile, action_type: Actions):
+        tile_state = "normal"
+        if tile.tile_type in [Tile.TileType.EMPTY, Tile.TileType.DOOR1, Tile.TileType.DOOR2, Tile.TileType.DOOR3]:
+            tile_state = "normal"
+        elif tile.tile_type == Tile.TileType.BARBED:
+            tile_state = "barbed"
+        elif tile.tile_type in [Tile.TileType.KEY1, Tile.TileType.KEY2, Tile.TileType.KEY3,
+                                Tile.TileType.GEM1, Tile.TileType.GEM2, Tile.TileType.GEM3, Tile.TileType.GEM4]:
+            tile_state = "slider"
+
+        elif tile.tile_type == Tile.TileType.TELEPORT:
+            tile_state = "teleport"
+
+        return game_rules.PROBABILITIES[tile_state][action_type.value]
+
+    def get_probability_move(self, tile: Tile, action_type: Actions):
+        probabilities = self.get_probabilities(tile, action_type)
+        rand_number = random.random()
+        for action_state, p in probabilities.items():
+            if rand_number <= p:
+                return Actions(action_state)
+            rand_number -= p
+
+        return Actions.NOOP
+
     def do_move_action(self, agent: Agent, action_type: Actions):
-        target = self.get_move_target(agent=agent, action_type=action_type)
+        target = self.get_move_target(agent=agent,
+                                      action_type=action_type)
         self.go_target(agent=agent, target=target)
 
     def do_teleport(self, agent: Agent):
@@ -178,16 +206,17 @@ class Game:
 
     def do_action(self, action, agent):
         try:
-
+            if action not in Actions.accepted_action():
+                raise Exceptions.InValidAction(agent_id=agent.id)
+            print(f"posted action={action}")
+            action = self.get_probability_move(tile=agent.tile, action_type=action)
+            print(f"selected action= {action}")
             if action in [Actions.UP, Actions.UP_LEFT, Actions.UP_RIGHT, Actions.DOWN, Actions.DOWN_LEFT,
                           Actions.DOWN_RIGHT, Actions.RIGHT, Actions.LEFT]:
                 self.do_move_action(agent=agent, action_type=action)
-
-            # elif action == Actions.TELEPORT:
-            #     self.do_teleport(agent=agent)
-            elif action == Actions.NOOP:
-                pass
-
+            # #
+            elif action == Actions.TELEPORT:
+                self.do_teleport(agent=agent)
 
             elif action == Actions.NOOP:
                 pass

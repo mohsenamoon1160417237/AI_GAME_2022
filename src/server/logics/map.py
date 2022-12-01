@@ -62,12 +62,17 @@ class Tile:
         else:
             return None
 
+
     def get_key(self):
         if self.tile_type in [self.TileType.KEY1, self.TileType.KEY2, self.TileType.KEY3]:
             return self.tile_type
 
         else:
             return None
+
+
+
+
 
 
 class Map:
@@ -108,7 +113,7 @@ class Map:
     def has_any_gems(self):
         for x in range(self.width):
             for y in range(self.height):
-                if self.get_tile(y, x).get_gem() is not None:
+                if self.get_tile(y,x).get_gem() is not None:
                     return True
 
         return False

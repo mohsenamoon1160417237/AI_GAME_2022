@@ -1,23 +1,14 @@
-import datetime
-
-from base import BaseAgent, Action
-from phase1 import Phase1
 import random
+from base import BaseAgent, Action
+
 
 
 class Agent(BaseAgent):
-
+    # actions = [Action.RIGHT] + [Action.TELEPORT] * 100
     def do_turn(self) -> Action:
-        now1 = datetime.datetime.now()
-        phase1 = Phase1(self)
-        action = phase1.main()
-        # action = phase1.main2()
-        now2 = datetime.datetime.now()
-        print(f'total_seconds: {(now2 - now1).total_seconds()}')
-        return action
-        # return random.choice(
-        #     [Action.DOWN, Action.DOWN_RIGHT, Action.DOWN_LEFT, Action.RIGHT, Action.LEFT, Action.UP_LEFT,
-        #      Action.UP_RIGHT, Action.UP])
+        return random.choice(
+            [Action.UP, Action.DOWN, Action.LEFT, Action.RIGHT, Action.DOWN_RIGHT, Action.DOWN_LEFT, Action.UP_LEFT,
+             Action.UP_RIGHT, Action.NOOP])
 
 
 if __name__ == '__main__':

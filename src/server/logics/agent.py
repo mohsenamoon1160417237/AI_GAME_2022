@@ -1,7 +1,7 @@
-from .network import Socket
-from .map import Tile
-from . import game_rules
-from .actions import Actions
+from logics.network import Socket
+from logics.map import Tile
+from logics import game_rules
+from logics.actions import Actions
 
 PLAYER_CHARACTERS = ["A", "B", "C", "D"]
 
@@ -43,14 +43,14 @@ class Agent:
         # gem_counts = self.get_gems_count()
         # for i, gem_count in enumerate(gem_counts.values()):
         #     point += gem_count * game_rules.GEM_SCORES[i]
-        gems = [None] + self.gems.copy()
+        gems = [None]+self.gems.copy()
 
         for i in range(1, len(gems)):
             if i == 1:
                 first = 0
             else:
                 first = int(gems[i - 1].value)
-            second = int(gems[i].value) - 1
+            second = int(gems[i].value)-1
             point += game_rules.GEM_SEQUENCE_SCORE[first][second]
 
         return point
