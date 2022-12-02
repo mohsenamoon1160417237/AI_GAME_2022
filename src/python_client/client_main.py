@@ -1,8 +1,7 @@
 import datetime
-import random
+
 from phase2 import Phase2
 from base import BaseAgent, Action
-
 
 
 class Agent(BaseAgent):
