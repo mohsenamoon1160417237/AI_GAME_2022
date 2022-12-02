@@ -24,7 +24,11 @@ class Phase2:
         if 'prev_gem' not in self.agent.__dict__:
             self.agent.prev_gem = None
         if 'agent_index' not in self.agent.__dict__:
-            self.agent.gem_index = np.argwhere(self.map == "EA")[0]
+            self.agent.agent_index = np.argwhere(self.map == "EA")[0]
+        if 'prev_map' in self.agent.__dict__:
+            self.calc_prev_gem()
+        else:
+            self.agent.prev_map = self.map
 
     @classmethod
     def calc_gems_scores(cls, gem: str, prev_gem: str) -> int:
@@ -225,7 +229,7 @@ class Phase2:
             now2 = datetime.datetime.now()
             if (now2 - now1).total_seconds() > 0.95 or delta < self.threshold:
                 converge = True
-            # if delta < self.treshhold:
+            # if delta < self.threshold:
             #     converge = True
 
     def find_optimal_policy(self):
@@ -244,61 +248,44 @@ class Phase2:
         return list[0][0]
 
     def perform_action(self, action: int):
-        gems = ["1", "2", "3", "4"]
         agent_index = self.agent.agent_index
         x_agent, y_agent = agent_index
         if action == 0:
             if x_agent != 0 and y_agent != 0:
-                target_cell = self.map[x_agent - 1][y_agent - 1]
-                if target_cell in gems:
-                    self.agent.prev_gem = target_cell
                 return Action.UP_LEFT
         elif action == 1:
             if x_agent != 0:
-                target_cell = self.map[x_agent - 1][y_agent]
-                if target_cell in gems:
-                    self.agent.prev_gem = target_cell
                 return Action.UP
         elif action == 2:
             if x_agent != 0 and y_agent != self.width:
-                target_cell = self.map[x_agent - 1][y_agent + 1]
-                if target_cell in gems:
-                    self.agent.prev_gem = target_cell
                 return Action.UP_RIGHT
         elif action == 3:
             if y_agent != 0:
-                target_cell = self.map[x_agent][y_agent - 1]
-                if target_cell in gems:
-                    self.agent.prev_gem = target_cell
                 return Action.LEFT
         elif action == 4:
             return Action.NOOP
         elif action == 5:
             if y_agent != self.width:
-                target_cell = self.map[x_agent][y_agent + 1]
-                if target_cell in gems:
-                    self.agent.prev_gem = target_cell
                 return Action.RIGHT
         elif action == 6:
             if x_agent != self.height and y_agent != 0:
-                target_cell = self.map[x_agent + 1][y_agent - 1]
-                if target_cell in gems:
-                    self.agent.prev_gem = target_cell
                 return Action.DOWN_LEFT
         elif action == 7:
             if x_agent != self.height:
-                target_cell = self.map[x_agent + 1][y_agent]
-                if target_cell in gems:
-                    self.agent.prev_gem = target_cell
                 return Action.DOWN
         elif action == 8:
             if x_agent != self.height and y_agent != self.width:
-                target_cell = self.map[x_agent + 1][y_agent + 1]
-                if target_cell in gems:
-                    self.agent.prev_gem = target_cell
                 return Action.DOWN_RIGHT
-        else:
-            return Action.NOOP
+
+        return Action.NOOP
+
+    def calc_prev_gem(self):
+        gems = ["1", "2", "3", "4"]
+        x_agent, y_agent = self.agent.agent_index
+        current_cell = self.agent.prev_map[x_agent][y_agent]
+        if current_cell in gems:
+            self.agent.prev_gem = current_cell
+        self.agent.prev_map = self.map
 
     def main(self):
         # print(self.map)
