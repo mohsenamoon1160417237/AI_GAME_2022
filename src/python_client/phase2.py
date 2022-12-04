@@ -23,8 +23,9 @@ class Phase2:
             self.agent.list = []
         if 'prev_gem' not in self.agent.__dict__:
             self.agent.prev_gem = None
-        if 'agent_index' not in self.agent.__dict__:
-            self.agent.agent_index = np.argwhere(self.map == "EA")[0]
+
+        self.agent.agent_index = np.argwhere(self.map == "EA")[0]
+
         if 'prev_map' in self.agent.__dict__:
             self.calc_prev_gem()
         else:
@@ -230,8 +231,8 @@ class Phase2:
                 converge = True
         print("value_map : ", self.value_map)
         # print("map : ", self.map)
-            # if delta < self.threshold:
-            #     converge = True
+        # if delta < self.threshold:
+        #     converge = True
 
     def find_optimal_policy(self):
         (i_agent, j_agent) = self.get_agent_index()
@@ -245,7 +246,7 @@ class Phase2:
                     list.append((count, -1000000))
                 count += 1
         list.sort(key=lambda a: a[1], reverse=True)
-        # print("policy : ", list)
+        # print("policy : ", list) todo remove comment
         return list[0][0]
 
     def perform_action(self, action: int):
