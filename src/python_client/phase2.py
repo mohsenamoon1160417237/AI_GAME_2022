@@ -11,8 +11,8 @@ class Phase2:
         self.height = self.agent.grid_height
         self.width = self.agent.grid_width
         self.map = np.array(self.agent.grid)
-        self.threshold = 20
-        self.gamma = 0.95
+        self.threshold = 1e-3
+        self.gamma = 0.9
         self.value_map = np.zeros((self.height, self.width), dtype=float)
         self.teleport = ['T', 'TA']
         self.barbed = ['*', '*A']
@@ -100,6 +100,7 @@ class Phase2:
         return agent_index[0][0], agent_index[0][1]
 
     def calc_reward(self, i_index, j_index) -> float:
+
         reward = 0
         if self.map[i_index][j_index] == 'W':
             reward += -500
@@ -223,12 +224,12 @@ class Phase2:
                     self.value_map[i][j] = self.calc_reward(
                         i, j) + self.gamma * max(list)
                     delta = max(delta, abs(temp - self.value_map[i][j]))
-            # print("value_map : ", self.value_map)
-            # print("map : ", self.map)
             # print("delta : ", delta)
             now2 = datetime.datetime.now()
             if (now2 - now1).total_seconds() > 0.95 or delta < self.threshold:
                 converge = True
+        print("value_map : ", self.value_map)
+        # print("map : ", self.map)
             # if delta < self.threshold:
             #     converge = True
 
@@ -288,7 +289,8 @@ class Phase2:
         self.agent.prev_map = self.map
 
     def main(self):
-        # print(self.map)
+        print("prev gem :" , self.agent.prev_gem)
+        print(self.map)
         # print(self.value_map)
         self.agent.list.append(self.agent.agent_gems[0])
         # print("prev gem :", self.agent.list)
