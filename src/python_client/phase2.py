@@ -1,3 +1,4 @@
+
 import datetime
 import numpy as np
 
@@ -147,45 +148,58 @@ class Phase2:
         for action in self.actions:
             x = i_index
             y = j_index
-            if action == 'UP':
-                if i_index != 0:
-                    x -= 1
-                    prob += prob_action[action] * self.value_map[x][y]
-            elif action == 'DOWN':
-                if i_index != self.height - 1:
-                    x += 1
-                    prob += prob_action[action] * self.value_map[x][y]
-            elif action == 'LEFT':
-                if j_index != 0:
-                    y -= 1
-                    prob += prob_action[action] * self.value_map[x][y]
-            elif action == 'RIGHT':
-                if j_index != self.width - 1:
-                    y += 1
-                    prob += prob_action[action] * self.value_map[x][y]
-            elif action == 'DOWN_RIGHT':
-                if i_index != self.height - 1 and j_index != self.width - 1:
-                    x += 1
-                    y += 1
-                    prob += prob_action[action] * self.value_map[x][y]
-            elif action == 'DOWN_LEFT':
-                if i_index != self.height - 1 and j_index != 0:
-                    x += 1
-                    y -= 1
-                    prob += prob_action[action] * self.value_map[x][y]
-            elif action == 'UP_LEFT':
-                if i_index != 0 and j_index != 0:
-                    x -= 1
-                    y -= 1
-                    prob += prob_action[action] * self.value_map[x][y]
-            elif action == 'UP_RIGHT':
-                if i_index != 0 and j_index != self.width - 1:
-                    x -= 1
-                    y += 1
-                    prob += prob_action[action] * self.value_map[x][y]
+            if self.map[x][y] != 'W':
+                if action == 'UP':
+                    if i_index != 0:
+                        x -= 1
 
-            elif action == 'NOOP':
+                elif action == 'DOWN':
+                    if i_index != self.height - 1:
+                        x += 1
+
+                elif action == 'LEFT':
+                    if j_index != 0:
+                        y -= 1
+
+                elif action == 'RIGHT':
+                    if j_index != self.width - 1:
+                        y += 1
+
+                elif action == 'DOWN_RIGHT':
+                    if i_index != self.height - 1 and j_index != self.width - 1:
+                        x += 1
+                        y += 1
+
+                elif action == 'DOWN_LEFT':
+                    if i_index != self.height - 1 and j_index != 0:
+                        x += 1
+                        y -= 1
+
+                elif action == 'UP_LEFT':
+                    if i_index != 0 and j_index != 0:
+                        x -= 1
+                        y -= 1
+
+                elif action == 'UP_RIGHT':
+                    if i_index != 0 and j_index != self.width - 1:
+                        x -= 1
+                        y += 1
+
+
+                elif action == 'NOOP':
+                    pass
+
+                if self.map[x][y] != 'W':
+                    pass
+                else:
+                    x = i_index
+                    y = j_index
                 prob += prob_action[action] * self.value_map[x][y]
+            else:
+                prob += 1 * self.value_map[x][y]
+
+
+
         return prob
 
     def is_normal(self, state) -> bool:
