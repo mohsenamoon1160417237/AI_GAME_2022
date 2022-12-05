@@ -25,7 +25,7 @@ class Phase2:
         if 'prev_gem' not in self.agent.__dict__:
             self.agent.prev_gem = None
 
-        self.agent.agent_index = np.argwhere(self.map == "EA")[0]
+        self.agent.agent_index = self.get_agent_index()
 
         if 'prev_map' in self.agent.__dict__:
             self.calc_prev_gem()
@@ -264,7 +264,7 @@ class Phase2:
         return list[0][0]
 
     def perform_action(self, action: int):
-        agent_index = self.agent.agent_index
+        agent_index = self.get_agent_index()
         x_agent, y_agent = agent_index
         if action == 0:
             if x_agent != 0 and y_agent != 0:
@@ -297,14 +297,14 @@ class Phase2:
 
     def calc_prev_gem(self):
         gems = ["1", "2", "3", "4"]
-        x_agent, y_agent = self.agent.agent_index
+        x_agent, y_agent = self.get_agent_index()
         current_cell = self.agent.prev_map[x_agent][y_agent]
         if current_cell in gems:
             self.agent.prev_gem = current_cell
         self.agent.prev_map = self.map
 
     def main(self):
-        print("prev gem :" , self.agent.prev_gem)
+        # print("prev gem :" , self.agent.prev_gem)
         print(self.map)
         # print(self.value_map)
         self.agent.list.append(self.agent.agent_gems[0])
