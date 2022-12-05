@@ -1,492 +1,1200 @@
 TURN 1 
-EA  W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   1   E   2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+EA  E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+3   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   r   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 2 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-EA  E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   1   E   2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+EA  E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   r   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 3 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-EA  W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   1   E   2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   EA  E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 4 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-EA  W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   1   E   2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+RA  W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 5 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   EA  E   E   E   1   E   2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 6 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   EA  E   E   1   E   2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 7 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   EA  E   1   E   2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 8 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   EA  1   E   2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 9 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   EA  E   2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 10 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   EA  2   E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 11 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   EA  E   3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   EA  E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 12 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   EA  3   E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   EA  E   3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 13 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   EA  E   4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   EA  3   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 14 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   EA  4   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   EA  E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 15 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   EA  E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   EA  E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 16 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   EA  E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   4   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   EA  E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 17 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   EA  E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   EA  E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 18 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   EA  E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   EA  E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 19 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   EA  E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   EA  E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 20 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   EA  E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 21 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   EA  E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 22 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   EA  E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 23 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   EA  E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 24 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   EA  E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 25 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   EA  E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 26 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   EA  E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 27 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   EA  E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+RA  W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 28 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   EA  E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   g   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   EA  E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 29 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   1   E   2   E   3   E   W   
-EA  W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   y   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   EA  E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 30 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   EA  E   E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   EA  E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 31 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   EA  E   E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   EA  E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 32 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   EA  E   E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   EA  E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 33 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   EA  E   E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+RA  W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 34 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   EA  E   E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 35 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   EA  E   1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 36 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   EA  1   E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 37 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   EA  E   2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 38 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   E   EA  2   E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   EA  E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 39 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   E   E   EA  E   3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   EA  E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 40 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   E   E   E   EA  3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   EA  E   E   E   E   E   E   G   2   3   r   E   
 ----------
 TURN 41 
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   E   
-E   E   E   E   E   E   E   E   E   E   E   EA  3   E   W   
-E   W   W   W   W   W   W   W   W   W   W   W   W   W   W   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   *   
-W   W   W   W   W   W   W   W   W   W   W   W   W   W   R   
-E   E   E   E   E   E   E   E   E   *   *   E   E   E   E   
-r   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
-E   E   E   E   E   E   E   E   E   E   E   E   E   g   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   EA  E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 42 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   EA  E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 43 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   EA  E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 44 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   EA  E   E   E   E   G   2   3   r   E   
+----------
+TURN 45 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   EA  E   E   E   G   2   3   r   E   
+----------
+TURN 46 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   EA  E   E   G   2   3   r   E   
+----------
+TURN 47 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   EA  E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 48 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   EA  E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 49 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   EA  E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 50 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 51 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 52 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   YA  W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 53 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   3   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   EA  4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 54 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   EA  3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   4   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 55 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   E   3   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   EA  
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 56 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   E   EA  
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 57 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   4   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   EA  E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 58 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   EA  E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 59 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   EA  E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 60 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   YA  W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 61 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 62 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 63 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 64 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 65 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   EA  E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 66 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   EA  W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 67 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   EA  W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   2   3   r   E   
+----------
+TURN 68 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   EA  3   r   E   
+----------
+TURN 69 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   EA  r   E   
+----------
+TURN 70 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   EA  E   
+----------
+TURN 71 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   EA  E   E   
+----------
+TURN 72 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   EA  E   E   E   
+----------
+TURN 73 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   EA  W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 74 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 75 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 76 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 77 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 78 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 79 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   YA  W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 80 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   EA  
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 81 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   EA  
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 82 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   2   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   EA  E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 83 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   EA  E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 84 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   EA  
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 85 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   EA  
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 86 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   EA  
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 87 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   YA  W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 88 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 89 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 90 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   EA  E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 91 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   EA  E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 92 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   EA  E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 93 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   EA  E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 94 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   EA  E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 95 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   EA  E   E   E   G   E   E   E   E   
+----------
+TURN 96 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   EA  E   E   E   E   G   E   E   E   E   
+----------
+TURN 97 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   EA  E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 98 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   EA  E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 99 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   E   EA  E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
+----------
+TURN 100 
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+E   E   E   E   W   E   E   E   E   E   E   E   E   E   E   W   E   E   E   
+R   W   W   W   W   E   E   E   E   E   E   E   E   E   E   W   W   Y   W   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+W   W   W   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   g   E   W   E   E   E   E   E   E   E   E   E   E   E   E   E   E   E   
+E   E   E   W   E   2   EA  E   E   E   E   E   E   E   E   W   W   W   W   
+E   E   E   *   E   E   2   E   E   E   E   E   E   E   G   E   E   E   E   
 ----------

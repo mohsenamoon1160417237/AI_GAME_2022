@@ -26,7 +26,10 @@ class Phase2:
                                'y': 0,
                                'g': 0}
         if 'prev_gem' not in self.agent.__dict__:
-            self.agent.prev_gem = None
+            if len(np.where(self.map == '1')[0]) > 0 :
+                self.agent.prev_gem = None
+            else :
+                self.agent.prev_gem = '1'
 
         self.agent.agent_index = self.get_agent_index()
 
@@ -116,7 +119,7 @@ class Phase2:
 
         reward = 0
         if self.map[i_index][j_index] == 'W':
-            reward += -500
+            reward += -1000
         if self.map[i_index][j_index] == '1':
             reward += self.calc_gems_scores('1', self.agent.prev_gem)
         elif self.map[i_index][j_index] == '2':
@@ -126,22 +129,26 @@ class Phase2:
         elif self.map[i_index][j_index] == '4':
             reward += self.calc_gems_scores('4', self.agent.prev_gem)
         elif self.map[i_index][j_index] == 'G':
-            reward += -500
-        #     # todo
-
+            if not self.is_lock(i_index,j_index) :
+                reward += 0
+            else :
+                reward += -1000
         elif self.map[i_index][j_index] == 'R':
-            reward += -500
-        #     # todo
-
+            if not self.is_lock(i_index,j_index) :
+                reward += 0
+            else :
+                reward += -1000
         elif self.map[i_index][j_index] == 'Y':
-            reward += -500
-        #     # todo
+            if not self.is_lock(i_index,j_index) :
+                reward += 0
+            else :
+                reward += -1000
         elif self.map[i_index][j_index] == 'g':
-            reward += 10
+            reward += 100
         elif self.map[i_index][j_index] == 'r':
-            reward += 10
+            reward += 100
         elif self.map[i_index][j_index] == 'y':
-            reward += 10
+            reward += 100
         elif self.map[i_index][j_index] == '*':
             reward += -20
         (i_agent, j_agent) = self.get_agent_index()
@@ -152,6 +159,15 @@ class Phase2:
         if i_agent != i_index and j_agent != j_index:
             reward += - 2
         return reward
+    def is_lock(self , inedx_i , index_j):
+        if self.map[inedx_i][index_j] == 'R' and self.agent.keys['r'] <= 0 :
+            return True
+        if self.map[inedx_i][index_j] == 'G' and self.agent.keys['g'] <= 0 :
+            return True
+        if self.map[inedx_i][index_j] == 'Y' and self.agent.keys['y'] <= 0 :
+            return True
+        return False
+
 
     def calc_probability(self, state, prob_action) -> float:
         (i_index, j_index) = state
@@ -159,7 +175,7 @@ class Phase2:
         for action in self.actions:
             x = i_index
             y = j_index
-            if self.map[x][y] != 'W':
+            if self.map[x][y] != 'W' and not self.is_lock(x,y):
                 if action == 'UP':
                     if i_index != 0:
                         x -= 1
@@ -199,7 +215,7 @@ class Phase2:
                 elif action == 'NOOP':
                     pass
 
-                if self.map[x][y] != 'W':
+                if self.map[x][y] != 'W' and not self.is_lock(x,y):
                     pass
                 else:
                     x = i_index
