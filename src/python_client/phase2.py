@@ -1,4 +1,3 @@
-
 import datetime
 import numpy as np
 
@@ -22,15 +21,20 @@ class Phase2:
                         "DOWN_RIGHT", "DOWN_LEFT", "UP_LEFT", "UP_RIGHT", "NOOP"]
         if 'list' not in self.agent.__dict__:
             self.agent.list = []
+        if 'keys' not in self.agent.__dict__:
+            self.agent.keys = {'r': 0,
+                               'y': 0,
+                               'g': 0}
         if 'prev_gem' not in self.agent.__dict__:
             self.agent.prev_gem = None
 
         self.agent.agent_index = self.get_agent_index()
 
         if 'prev_map' in self.agent.__dict__:
+            self.calc_keys_count()
             self.calc_prev_gem()
-        else:
-            self.agent.prev_map = self.map
+
+        self.agent.prev_map = self.map
 
     @classmethod
     def calc_gems_scores(cls, gem: str, prev_gem: str) -> int:
@@ -76,6 +80,13 @@ class Phase2:
             else:
                 return 50
 
+    def calc_keys_count(self):
+        keys = ["r", "g", "y"]
+        x_agent, y_agent = self.agent.agent_index
+        current_cell = self.agent.prev_map[x_agent][y_agent]
+        if current_cell in keys:
+            self.agent.keys[current_cell] += 1
+
     def get_agent_index(self):
         agent_index = np.empty((0, 2), dtype=int)
         for row in range(self.map.shape[0]):
@@ -99,7 +110,7 @@ class Phase2:
             if len(agent[0]) != 0:
                 agent_index = np.vstack((agent_index, [row, agent[0][0]]))
         # print(agent_index)
-        return agent_index[0][0], agent_index[0][1]
+        return [agent_index[0][0], agent_index[0][1]]
 
     def calc_reward(self, i_index, j_index) -> float:
 
@@ -185,7 +196,6 @@ class Phase2:
                         x -= 1
                         y += 1
 
-
                 elif action == 'NOOP':
                     pass
 
@@ -197,8 +207,6 @@ class Phase2:
                 prob += prob_action[action] * self.value_map[x][y]
             else:
                 prob += 1 * self.value_map[x][y]
-
-
 
         return prob
 
@@ -264,7 +272,7 @@ class Phase2:
         return list[0][0]
 
     def perform_action(self, action: int):
-        agent_index = self.get_agent_index()
+        agent_index = self.agent.agent_index
         x_agent, y_agent = agent_index
         if action == 0:
             if x_agent != 0 and y_agent != 0:
@@ -297,14 +305,13 @@ class Phase2:
 
     def calc_prev_gem(self):
         gems = ["1", "2", "3", "4"]
-        x_agent, y_agent = self.get_agent_index()
+        x_agent, y_agent = self.agent.agent_index
         current_cell = self.agent.prev_map[x_agent][y_agent]
         if current_cell in gems:
             self.agent.prev_gem = current_cell
-        self.agent.prev_map = self.map
 
     def main(self):
-        # print("prev gem :" , self.agent.prev_gem)
+        print("prev gem :", self.agent.prev_gem)
         print(self.map)
         # print(self.value_map)
         self.agent.list.append(self.agent.agent_gems[0])
