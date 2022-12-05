@@ -1,6 +1,6 @@
 import datetime
 
-from phase2 import Phase2
+from src.python_client.Phase2 import Phase2
 from base import BaseAgent, Action
 
 
