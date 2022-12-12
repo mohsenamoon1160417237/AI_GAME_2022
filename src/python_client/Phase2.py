@@ -26,7 +26,10 @@ class Phase2:
                                'y': 0,
                                'g': 0}
         if 'prev_gem' not in self.agent.__dict__:
-            self.agent.prev_gem = None
+            if len(np.where(self.map == '1')[0]) > 0 :
+                self.agent.prev_gem = None
+            else :
+                self.agent.prev_gem = '1'
 
         self.agent.agent_index = self.get_agent_index()
 
@@ -116,7 +119,7 @@ class Phase2:
 
         reward = 0
         if self.map[i_index][j_index] == 'W':
-            reward += -500
+            reward += -1000
         if self.map[i_index][j_index] == '1':
             reward += self.calc_gems_scores('1', self.agent.prev_gem)
         elif self.map[i_index][j_index] == '2':
@@ -126,32 +129,45 @@ class Phase2:
         elif self.map[i_index][j_index] == '4':
             reward += self.calc_gems_scores('4', self.agent.prev_gem)
         elif self.map[i_index][j_index] == 'G':
-            reward += -500
-        #     # todo
-
+            if not self.is_lock(i_index,j_index) :
+                reward += 0
+            else :
+                reward += -1000
         elif self.map[i_index][j_index] == 'R':
-            reward += -500
-        #     # todo
-
+            if not self.is_lock(i_index,j_index) :
+                reward += 0
+            else :
+                reward += -1000
         elif self.map[i_index][j_index] == 'Y':
-            reward += -500
-        #     # todo
+            if not self.is_lock(i_index,j_index) :
+                reward += 0
+            else :
+                reward += -1000
         elif self.map[i_index][j_index] == 'g':
-            reward += 10
+            reward += 100
         elif self.map[i_index][j_index] == 'r':
-            reward += 10
+            reward += 100
         elif self.map[i_index][j_index] == 'y':
-            reward += 10
+            reward += 100
         elif self.map[i_index][j_index] == '*':
             reward += -20
         (i_agent, j_agent) = self.get_agent_index()
         if i_agent == i_index and j_agent != j_index:
-            reward += - 1
+            reward += -abs(j_agent - j_index)
         if j_agent == j_index and i_agent != i_index:
-            reward += - 1
+            reward += -abs(i_agent - i_index)
         if i_agent != i_index and j_agent != j_index:
-            reward += - 2
+            reward += -abs(i_agent - i_index) + -abs(j_agent - j_index)
         return reward
+    def is_lock(self , inedx_i , index_j):
+        if self.map[inedx_i][index_j] == 'R' and self.agent.keys['r'] <= 0 :
+            return True
+        if self.map[inedx_i][index_j] == 'G' and self.agent.keys['g'] <= 0 :
+            return True
+        if self.map[inedx_i][index_j] == 'Y' and self.agent.keys['y'] <= 0 :
+            return True
+        return False
+
 
     def calc_probability(self, state, prob_action) -> float:
         (i_index, j_index) = state
@@ -159,7 +175,7 @@ class Phase2:
         for action in self.actions:
             x = i_index
             y = j_index
-            if self.map[x][y] != 'W':
+            if self.map[x][y] != 'W' and not self.is_lock(x,y):
                 if action == 'UP':
                     if i_index != 0:
                         x -= 1
@@ -199,7 +215,7 @@ class Phase2:
                 elif action == 'NOOP':
                     pass
 
-                if self.map[x][y] != 'W':
+                if self.map[x][y] != 'W' and not self.is_lock(x,y):
                     pass
                 else:
                     x = i_index
@@ -249,7 +265,7 @@ class Phase2:
                     delta = max(delta, abs(temp - self.value_map[i][j]))
             # print("delta : ", delta)
             now2 = datetime.datetime.now()
-            if (now2 - now1).total_seconds() > 0.95 or delta < self.threshold:
+            if (now2 - now1).total_seconds() > 0.9 or delta < self.threshold:
                 converge = True
         print("value_map : ", self.value_map)
         # print("map : ", self.map)
@@ -268,7 +284,8 @@ class Phase2:
                     list.append((count, -1000000))
                 count += 1
         list.sort(key=lambda a: a[1], reverse=True)
-        # print("policy : ", list) todo remove comment
+
+        print("policy : ", list)
         return list[0][0]
 
     def perform_action(self, action: int):
@@ -311,6 +328,7 @@ class Phase2:
             self.agent.prev_gem = current_cell
 
     def main(self):
+        print("turn count :" , self.agent.turn_count)
         print("prev gem :", self.agent.prev_gem)
         print(self.map)
         # print(self.value_map)
@@ -318,6 +336,7 @@ class Phase2:
         # print("prev gem :", self.agent.list)
         self.value_iteration()
         action = self.find_optimal_policy()
+        print("a",self.perform_action(action))
         return self.perform_action(action)
         # return random.choice(
         #     [Action.UP, Action.DOWN, Action.LEFT, Action.RIGHT, Action.DOWN_RIGHT, Action.DOWN_LEFT, Action.UP_LEFT,
