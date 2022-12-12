@@ -230,7 +230,7 @@ class Phase2:
             for i in range(0, self.height):
                 for j in range(0, self.width):
                     temp = self.value_map[i][j]
-                    list = []
+                    total_probs = []
                     for action in self.actions:
                         state = (i, j)
                         total_prob = 0
@@ -243,9 +243,9 @@ class Phase2:
                         elif self.is_teleport(self.map[i][j]):
                             total_prob = self.calc_probability(state, self.agent.probabilities['teleport'][action])
 
-                        list.append(total_prob)
+                        total_probs.append(total_prob)
                     self.value_map[i][j] = self.calc_reward(
-                        i, j) + self.gamma * max(list)
+                        i, j) + self.gamma * max(total_probs)
                     delta = max(delta, abs(temp - self.value_map[i][j]))
             # print("delta : ", delta)
             now2 = datetime.datetime.now()
