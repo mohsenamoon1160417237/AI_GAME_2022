@@ -168,46 +168,6 @@ class ReinforceLearning(ModelBasedPolicy):
 
         return tot_reward / tot_prob
 
-    def calc_reward_reinforce_main(self, action):
-        i, j = self.agent.agent_index
-        action = self.perform_action(action)
-        states = [{'index': (i, j),
-                   'prob': 1,
-                   'self': None,
-                   'children': [],
-                   'is_root': True,
-                   'visited': False}
-                  ]
-
-        iter_states = iter(states)
-        parent_states = states
-        iter_parent_states = iter(parent_states)
-
-        num = 1
-        while True:
-            try:
-                state = next(iter_states)
-            except StopIteration:
-                if num == 5:
-                    break
-                try:
-                    states = next(iter_parent_states)['children']
-                except StopIteration:
-                    states = parent_states[0]['children']
-                    parent_states = states
-                    iter_parent_states = iter(parent_states)
-                    iter_states = iter(states)
-                    num += 1
-                continue
-
-            state['children'] = self.calc_reward_reinforce(action, state)
-
-        return states
-
-    def calc_child_for_state(self, state, action):
-        state['children'] = self.calc_reward_reinforce(action, state)
-        return state
-
     def main(self):
         agent_index = self.agent.agent_index
 
@@ -225,15 +185,3 @@ class ReinforceLearning(ModelBasedPolicy):
 
         self.agent.action2 = self.choose_action(agent_index)
         return self.perform_action(self.agent.action2)
-
-    def main2(self):
-        agent_index = self.agent.agent_index
-        self.agent.action1 = self.choose_action(agent_index)
-        self.reward = self.calc_reward_reinforce_main(self.agent.action1)
-
-    def test_main(self):
-        agent_index = self.agent.agent_index
-        if self.agent.action1 is None:
-            # self.agent.action1 = self.choose_action(agent_index)
-            self.reward = self.calc_reward_reinforce(1)
-            return self.perform_action(1)

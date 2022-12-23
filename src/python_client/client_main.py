@@ -15,9 +15,6 @@ class Agent(BaseAgent):
         now2 = datetime.datetime.now()
         print(f'total_seconds: {(now2 - now1).total_seconds()}')
         return action
-        # return random.choice(
-        #     [Action.UP, Action.DOWN, Action.LEFT, Action.RIGHT, Action.DOWN_RIGHT, Action.DOWN_LEFT, Action.UP_LEFT,
-        #      Action.UP_RIGHT, Action.NOOP])
 
 
 if __name__ == '__main__':
