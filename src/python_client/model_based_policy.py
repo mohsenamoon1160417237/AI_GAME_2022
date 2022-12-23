@@ -144,11 +144,11 @@ class ModelBasedPolicy:
             reward -= 20
         (i_agent, j_agent) = self.get_agent_index()
         if i_agent == i_index and j_agent != j_index:
-            reward -= 1
+            reward -= abs(j_agent - j_index)
         if j_agent == j_index and i_agent != i_index:
-            reward -= 1
+            reward -= abs(i_agent - i_index)
         if i_agent != i_index and j_agent != j_index:
-            reward -= 2
+            reward -= abs(i_agent - i_index) + -abs(j_agent - j_index)
         return reward
 
     def calc_probability(self, state, prob_action) -> float:
@@ -238,7 +238,7 @@ class ModelBasedPolicy:
                     delta = max(delta, abs(temp - self.value_map[i][j]))
             # print("delta : ", delta)
             now2 = datetime.datetime.now()
-            if (now2 - now1).total_seconds() > 0.95 or delta < self.threshold:
+            if (now2 - now1).total_seconds() > 0.9 or delta < self.threshold:
                 converge = True
         print("value_map : ", self.value_map)
         # print("map : ", self.map)
