@@ -1,21 +1,50 @@
-from typing import List, Tuple
 import numpy as np
+from base import  Action
 
-from model_based_policy import ModelBasedPolicy
-
-
-class MiniMax(ModelBasedPolicy):
-    def __init__(self, agent, goal_index: tuple):
-        super().__init__(agent)
+class MiniMax:
+    def __init__(self, agent, character):
+        self.agent = agent
+        self.map = np.array(self.agent.grid)
+        self.height = self.agent.grid_height
+        self.width = self.agent.grid_width
         if 'wall_indexes' not in self.agent.__dict__:
             self.agent.wall_indexes = self.make_wall_indexes()
-        if 'gem_indexes' not in self.agent.__dict__:
-            self.agent.gem_indexes = None
-        self.goal_index = goal_index
+        if 'gem_indexes' not in self.agent.__dict__:  # int
+            self.agent.gem_indexes = self.make_gem_indexes()
+        self.gem = ['1','2','3','4']
+        self.actions = ["UP", "DOWN", "LEFT", "RIGHT", "DOWN_RIGHT", "DOWN_LEFT", "UP_LEFT", "UP_RIGHT", "NOOP"]
+        self.character = character
         self.visited_indexes = []
-        self.agent_index = tuple(self.agent.agent_index)
-        self.min_iter = 0
-        self.max_iter = 0
+    def get_agent_index(self , character):
+        agent_index = np.empty((0, 2), dtype=int)
+        for row in range(self.map.shape[0]):
+            if character =='A':
+                agent = np.where(self.map[row] == 'EA')
+                if len(agent[0]) != 0:
+                    agent_index = np.vstack((agent_index, [row, agent[0][0]]))
+            if character == 'B' :
+                agent = np.where(self.map[row] == 'EB')
+                if len(agent[0]) != 0:
+                    agent_index = np.vstack((agent_index, [row, agent[0][0]]))
+        return [agent_index[0][0], agent_index[0][1]]
+
+    def make_gem_indexes(self) -> np.array:
+        gem_indexes = np.empty((0, 3), dtype=int)  # row, col, gem_number
+        for row in range(self.map.shape[0]):
+            new_arr = np.where(self.map[row] == '1')
+            for col in new_arr[0]:
+                gem_indexes = np.vstack((gem_indexes, [row, col, 1]))
+            new_arr = np.where(self.map[row] == '2')
+            for col in new_arr[0]:
+                gem_indexes = np.vstack((gem_indexes, [row, col, 2]))
+            new_arr = np.where(self.map[row] == '3')
+            for col in new_arr[0]:
+                gem_indexes = np.vstack((gem_indexes, [row, col, 3]))
+            new_arr = np.where(self.map[row] == '4')
+            for col in new_arr[0]:
+                gem_indexes = np.vstack((gem_indexes, [row, col, 4]))
+
+        return gem_indexes
 
     def make_wall_indexes(self) -> np.array:
         wall_indexes = []
@@ -24,79 +53,145 @@ class MiniMax(ModelBasedPolicy):
                 if self.map[row][col] == "W":
                     wall_indexes.append((row, col))
         return wall_indexes
+    def is_terminal (self , state) -> bool:
+        (i,j) = state
+        if self.map[i][j] in self.gem :
+            return True
+        return False
+    def transition_model(self , action , state) -> tuple:
+        #return None for imposible action and wall
+        # print(state)
+        (i,j) = state
+        next_state = ()
+        if action == 'UP':
+            if i != 0:
+                next_state = (i-1,j)
+            else:
+                return None
 
-    def make_nearby_indexes(self, cur_index, indexes: List):
-        near_by_indexes = []
-        i, j = cur_index
-        if i != 0:
-            near_by_indexes.append((i - 1, j))
-        if i != 0 and j != 0:
-            near_by_indexes.append((i - 1, j - 1))
-        if i != 0 and j != self.width - 1:
-            near_by_indexes.append((i - 1, j + 1))
-        if j != 0:
-            near_by_indexes.append((i, j - 1))
-        if i != self.height - 1 and j != 0:
-            near_by_indexes.append((i + 1, j - 1))
-        if i != self.height - 1:
-            near_by_indexes.append((i + 1, j))
-        if i != self.height - 1 and j != self.width - 1:
-            near_by_indexes.append((i + 1, j + 1))
-        if j != self.width - 1:
-            near_by_indexes.append((i, j + 1))
+        elif action == 'DOWN':
+            if i != self.height - 1:
+                next_state = (i+1,j)
+            else:
+                return None
+        elif action == 'LEFT':
+            if j != 0:
+                next_state = (i,j-1)
+            else:
+                return None
+        elif action == 'RIGHT':
+            if j != self.width - 1:
+                next_state = (i,j+1)
+            else:
+                return None
+        elif action == 'DOWN_RIGHT':
+            if i != self.height - 1 and j != self.width - 1:
+                next_state = (i+1,j+1)
+            else:
+                return None
+        elif action == 'DOWN_LEFT':
+            if i != self.height - 1 and j != 0:
+                next_state = (i+1 , j-1)
+            else:
+                return None
+        elif action == 'UP_LEFT':
+            if i != 0 and j != 0:
+                next_state = (i-1,j-1)
+            else:
+                return None
+        elif action == 'UP_RIGHT':
+            if i != 0 and j != self.width - 1:
+                next_state = (i-1,j+1)
+            else:
+                return None
+        elif action == 'NOOP':
+            next_state = (i,j)
+        if next_state not in self.agent.wall_indexes :
+            return next_state
+        else:
+            return None
 
-        new_near_by_indexes = []
-        for index in near_by_indexes:
-            if index != self.agent_index and index not in self.agent.wall_indexes and index not in self.visited_indexes:
-                new_indexes = indexes.copy()
-                new_indexes.append(index)
-                new_near_by_indexes.append((index, new_indexes))
 
-        return new_near_by_indexes
-
-    def minimax(self, cur_index: tuple, max_turn: bool, indexes: list) -> list:
+    def minimax(self , action , state , max_turn , score) -> list:
         """"
         Main function
         """
-        if cur_index == self.goal_index:
-            return [self.heuristic(cur_index), indexes[0]]
-
-        near_by_indexes = self.make_nearby_indexes(cur_index, indexes)
-        self.visited_indexes.append(cur_index)
-        if len(near_by_indexes) == 0:
-            # return [self.heuristic(cur_index), indexes[0]]
-            return [0, indexes[0]]
-
+        # print(action , state , max_turn , score)
+        if self.is_terminal(state):
+            score += 50
+            return [action , state , max_turn , score]
+        self.visited_indexes.append(state)
         if max_turn:
-            self.max_iter += 1
-            results = [self.minimax(index[0], False, index[1]) for index in near_by_indexes]
-            max_reward = 0
-            reward_index = 0
-            for enum, itm in enumerate(results):
-                if itm[0] > max_reward:
-                    max_reward = itm[0]
-                    reward_index = enum
-            return [max_reward, near_by_indexes[reward_index][1]]
-
+            list = []
+            for action in self.actions :
+                if self.transition_model(action , state) is not None and self.transition_model(action , state) not in self.visited_indexes:
+                    state = self.transition_model(action , state)
+                    print(action , state , max_turn , score)
+                    list.append(self.minimax(action , state , False , score))
+            list.sort(key=lambda a: a[3], reverse=True) #decrease
+            print(list[0])
+            return list[0]
         else:
-            self.min_iter += 1
-            results = [self.minimax(index[0], False, index[1]) for index in near_by_indexes]
-            min_reward = 999999
-            reward_index = 0
-            for enum, itm in enumerate(results):
-                if itm[0] < min_reward:
-                    min_reward = itm[0]
-                    reward_index = enum
-            return [min_reward, near_by_indexes[reward_index][1]]
+            list = []
+            for action in self.actions :
+                if self.transition_model(action , state) is not None and self.transition_model(action , state) not in self.visited_indexes:
+                    state = self.transition_model(action , state)
+                    print(action , state , max_turn , score)
+                    list.append(self.minimax(action , state , True , score))
+            list.sort(key=lambda a: a[3], reverse=False) #increase
+            # print(list[0])
+            return list[0]
+    def perform_action(self, action: str):
+        if action == 'UP':
+            return Action.UP
 
-    def heuristic(self, cur_index: tuple) -> int:
-        """
-        Calculates score of the current index. And if current index is equal to the self.goal_index(gem index) it should
-        return the gem score.
-        """
-        return 10
+        elif action == 'DOWN':
+            return Action.DOWN
+
+        elif action == 'LEFT':
+            return Action.LEFT
+
+        elif action == 'RIGHT':
+            return Action.RIGHT
+
+        elif action == 'DOWN_RIGHT':
+            return Action.DOWN_RIGHT
+
+        elif action == 'DOWN_LEFT':
+            return Action.DOWN_LEFT
+
+        elif action == 'UP_LEFT':
+            return Action.UP_LEFT
+
+        elif action == 'UP_RIGHT':
+            return Action.UP_RIGHT
+        elif action == 'NOOP':
+            return Action.NOOP
+
+    # def heuristic(self, cur_index: tuple) -> int:
+    #     """
+    #     Calculates score of the current index. And if current index is equal to the self.goal_index(gem index) it should
+    #     return the gem score.
+    #     """
+    #     return 10
+
 
     def main(self):
-        scores = self.minimax(self.agent_index, True, [])
-        print(scores)
-        return scores
+        action = 'NOOP'
+        # print(self.agent_index)
+        # print(state)
+        # print(self.is_terminal((1,8)))
+        if self.character == 'A':
+            i = self.get_agent_index(self.character)[0]
+            j = self.get_agent_index(self.character)[1]
+            state = (i,j)
+            max_turn = True
+        else :
+            i = self.get_agent_index(self.character)[0]
+            j = self.get_agent_index(self.character)[1]
+            state = (i,j)
+            max_turn = False
+        score = 0
+        [action , state , max_turn , score] = self.minimax(action , state , max_turn , score)
+
+        return self.perform_action(action)
