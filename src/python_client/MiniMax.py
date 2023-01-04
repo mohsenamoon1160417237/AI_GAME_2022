@@ -11,6 +11,8 @@ class MiniMax:
         self.width = self.agent.grid_width
         if 'wall_indexes' not in self.agent.__dict__:
             self.agent.wall_indexes = self.make_wall_indexes()
+        if 'barbed_indexes' not in self.agent.__dict__:  # int
+            self.agent.barbed_indexes = self.make_barbed_indexes()
         self.agent.gem_indexes = self.make_gem_indexes()
         self.gem = ['1', '2', '3', '4']
         self.actions = ["UP", "DOWN", "LEFT", "RIGHT",
@@ -30,7 +32,6 @@ class MiniMax:
         #     self.calc_keys_count()
         #     self.calc_prev_gem()
 
-        self.agent.prev_map = self.map
 
     def get_agent_index(self, character):
         agent_index = np.empty((0, 2), dtype=int)
@@ -46,39 +47,23 @@ class MiniMax:
         return [agent_index[0][0], agent_index[0][1]]
 
     def make_gem_indexes(self) -> np.array:
-        gem_indexes = np.empty((0, 3), dtype=int)  # row, col, gem_number
+        gem_indexes = np.empty((0, 2), dtype=int)  # row, col, gem_number
         for row in range(self.map.shape[0]):
             new_arr = np.where(self.map[row] == '1')
             for col in new_arr[0]:
-                gem_indexes = np.vstack((gem_indexes, [row, col, 1]))
+                gem_indexes = np.vstack((gem_indexes, [row, col]))
             new_arr = np.where(self.map[row] == '2')
             for col in new_arr[0]:
-                gem_indexes = np.vstack((gem_indexes, [row, col, 2]))
+                gem_indexes = np.vstack((gem_indexes, [row, col]))
             new_arr = np.where(self.map[row] == '3')
             for col in new_arr[0]:
-                gem_indexes = np.vstack((gem_indexes, [row, col, 3]))
+                gem_indexes = np.vstack((gem_indexes, [row, col]))
             new_arr = np.where(self.map[row] == '4')
             for col in new_arr[0]:
-                gem_indexes = np.vstack((gem_indexes, [row, col, 4]))
+                gem_indexes = np.vstack((gem_indexes, [row, col]))
         return gem_indexes
 
-    def calc_keys_count(self):
-        keys = ["r", "g", "y"]
-        x_agent = self.get_agent_index(self.character)[0]
-        y_agent = self.get_agent_index(self.character)[0]
-        current_cell = self.agent.prev_map[x_agent][y_agent]
-        if current_cell in keys:
-            self.agent.keys[current_cell] += 1
-
-    def calc_prev_gem(self):
-        gems = ["1", "2", "3", "4"]
-        x_agent = self.get_agent_index(self.character)[0]
-        y_agent = self.get_agent_index(self.character)[0]
-        current_cell = self.agent.prev_map[x_agent][y_agent]
-        if current_cell in gems:
-            self.agent.prev_gem = current_cell
-
-    def calc_gems_scores(cls, gem: str, prev_gem: str) -> int:
+    def calc_gems_scores(self, gem: str, prev_gem: str) -> int:
         if prev_gem is None:
             if gem == GEMS['YELLOW_GEM']:
                 return 50
@@ -128,7 +113,13 @@ class MiniMax:
                 if self.map[row][col] == "W":
                     wall_indexes.append((row, col))
         return wall_indexes
-
+    def make_barbed_indexes(self) -> np.array:
+        barbed_indexes = np.empty((0, 2), dtype=int)  # row, col
+        for row in range(self.map.shape[0]):
+            new_arr = np.where(self.map[row] == '*')
+            for col in new_arr[0]:
+                barbed_indexes = np.vstack((barbed_indexes, [row, col]))
+        return barbed_indexes
     def transition_model(self, action, state) -> tuple:
         # return None for imposible action and wall
         # print(state)
@@ -186,57 +177,77 @@ class MiniMax:
         else:
             return None
 
-    def is_terminal(self, state_A, state_B) -> bool:
-        # (i,j) = state
-        # if self.map[i][j] in self.gem :
-        #     return True
-        # return False
-        if state_A == (1, 2) or state_B == (1, 2):
+    def is_terminal(self) -> bool:
+        self.agent.gem_indexes = self.make_gem_indexes()
+        if len(self.agent.gem_indexes) ==0 :
             return True
-        else:
-            return False
+        return False
+        # if state_A == (1, 2) or state_B == (1, 2):
+        #     return True
+        # else:
+        #     return False
 
-    def minimax(self, action, state_A, state_B, max_turn, score) -> list:
+    def find_best_action(self):
+        best_score = -1000
+        best_action = 'NOOP'
+        i = self.get_agent_index('A')[0]
+        j = self.get_agent_index('A')[1]
+        state_A = (i, j)
+        init_state = state_A
+        i = self.get_agent_index('B')[0]
+        j = self.get_agent_index('B')[1]
+        state_B = (i, j)
+        max_turn = False
+        for action in self.actions :
+
+            if self.transition_model(action , init_state) is not None :
+                state_A = self.transition_model(action , init_state)
+                self.visited_indexes_A = [init_state ]
+                self.visited_indexes_B = []
+                print('start :',init_state)
+                print('action :' , action)
+                score = self.minimax(state_A, state_B, max_turn)
+                print('score : ',score)
+                print(init_state , action, state_A, state_B, max_turn)
+                print('------------------------------------------------------')
+                if (score > best_score) :
+                    best_action = action
+                    best_score = score
+        print("act : ",best_action)
+        return best_action
+
+
+    def minimax(self, state_A, state_B, max_turn) -> int:
         """"
         Main function
         """
 
-        if self.is_terminal(state_A, state_B):
-            print("terminate-------------------------------------------------")
-            score += self.heuristic(state_A)
-            print("ter", action, state_A, state_B, max_turn, score)
-            return [action, state_A, state_B, max_turn, score]
-        print("father", action, state_A, state_B, max_turn, score)
+        if self.is_terminal():
+            # print("h :",self.heuristic())
+            return self.heuristic()
+        # print("father : " , state_A)
         if max_turn:
+            best = -1000
             self.visited_indexes_A.append(state_A)
-            list = []
             init_state = state_A
-            init_action = action
             for act in self.actions:
                 if self.transition_model(act, init_state) is not None and self.transition_model(act, init_state) not in self.visited_indexes_A:
                     state_A = self.transition_model(act, init_state)
-                    print("child max", init_state, act,
-                          state_A, state_B, max_turn, score)
-                    list.append(self.minimax(
-                        act, state_A, state_B, False, score))
-            if len(list) == 0:
-                return [init_action, init_state, state_B, False, score]
-            list.sort(key=lambda a: a[4], reverse=True)  # decrease
-            return list[0]
+                    # print("child : " , state_A)
+                    # print("best before max:",best)
+                    best =  max(best , self.minimax( state_A, state_B, not max_turn))
+                    # print("best after max:",best)
+            # print("best : " ,best)
+            return best
         else:
+            best = 1000
             self.visited_indexes_B.append(state_B)
-            list = []
             init_state = state_B
-            init_action = action
             for act in self.actions:
                 if self.transition_model(act, init_state) is not None and self.transition_model(act, init_state) not in self.visited_indexes_B:
                     state_B = self.transition_model(act, init_state)
-                    list.append(self.minimax(
-                        init_action, state_A, state_B, True, score))
-            if len(list) == 0:
-                return [init_action, state_A, init_state, False, score]
-            list.sort(key=lambda a: a[4], reverse=False)  # increase
-            return list[0]
+                    best = min(best , self.minimax( state_A, state_B, not max_turn))
+            return best
 
     def perform_action(self, action: str):
         if action == 'UP':
@@ -265,23 +276,26 @@ class MiniMax:
         elif action == 'NOOP':
             return Action.NOOP
 
-    def heuristic(self, state_A) -> int:
+    def heuristic(self) -> int:
         """
         Calculates score of the terminal state
         """
-        if (state_A == (1, 2)):
-            return +1
-        else:
-            return -1
+        return self.agent_A_score - self.agent_B_score
+        # if (self.agent_A_score > self.agent_B_score):
+        #     return +100
+        # elif (self.agent_A_score < self.agent_B_score):
+        #     return -100
+        # else:
+        #     0
 
     def main(self):
         action = 'NOOP'
-        i = self.get_agent_index('A')[0]
-        j = self.get_agent_index('A')[1]
-        state_A = (i, j)
-        i = self.get_agent_index('B')[0]
-        j = self.get_agent_index('B')[1]
-        state_B = (i, j)
+        # i = self.get_agent_index('A')[0]
+        # j = self.get_agent_index('A')[1]
+        # state_A = (i, j)
+        # i = self.get_agent_index('B')[0]
+        # j = self.get_agent_index('B')[1]
+        # state_B = (i, j)
         # print(self.agent_index)
         # print(state)
         # print(self.is_terminal())
@@ -292,9 +306,11 @@ class MiniMax:
         #     if self.transition_model(act , init_state) is not None and self.transition_model(act , init_state) not in self.visited_indexes_A:
         #         state_A = self.transition_model(act , init_state)
         #         print(act , state_A)
-        max_turn = True
-        score = 0
-        [action, state_A, state_B, max_turn, score] = self.minimax(
-            action, state_A, state_B, max_turn, score)
-        print("f", action, state_A, state_B, max_turn, score)
+        # max_turn = True
+        # score = 0
+        # [action, state_A, state_B, max_turn, score] = self.minimax(
+        #     action, state_A, state_B, max_turn, score)
+        # print("f", action, state_A, state_B, max_turn, score)
+        action = self.find_best_action()
+        # print(self.minimax((1,0), (1,4), False))
         return self.perform_action(action)
