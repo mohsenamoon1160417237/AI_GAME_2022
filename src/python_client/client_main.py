@@ -1,7 +1,7 @@
 import datetime
 
 from base import BaseAgent, Action
-from MiniMax import MiniMax
+from MiniMax2 import MiniMax
 
 
 
@@ -9,10 +9,10 @@ class Agent(BaseAgent):
     # actions = [Action.RIGHT] + [Action.TELEPORT] * 100
     def do_turn(self) -> Action:
         now1 = datetime.datetime.now()
-        phase2 = MiniMax(self)
+        phase3 = MiniMax(self )
         # print(self.agent_scores)
-        # phase2 = ReinforceLearning(self)
-        action = phase2.main()
+        # phase3 = ReinforceLearning(self)
+        action = phase3.main()
         now2 = datetime.datetime.now()
         print(f'total_seconds: {(now2 - now1).total_seconds()}')
         return action

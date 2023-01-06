@@ -6,7 +6,7 @@
   "player_count": 2,
   "time_out": 1,
   "init_score": 0,
-  "turn_count": 100,
+  "turn_count": 10,
   "init_random_location": false,
   "round_repeat": 1
 }
