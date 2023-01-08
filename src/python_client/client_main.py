@@ -9,7 +9,7 @@ class Agent(BaseAgent):
     # actions = [Action.RIGHT] + [Action.TELEPORT] * 100
     def do_turn(self) -> Action:
         now1 = datetime.datetime.now()
-        phase3 = MiniMax(self )
+        phase3 = MiniMax(self)
         # print(self.agent_scores)
         # phase3 = ReinforceLearning(self)
         action = phase3.main()
