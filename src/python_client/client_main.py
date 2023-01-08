@@ -1,7 +1,7 @@
 import datetime
 
 from base import BaseAgent, Action
-from MiniMax2 import MiniMax
+from MiniMax1 import MiniMax
 
 
 

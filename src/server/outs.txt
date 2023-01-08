@@ -4,97 +4,97 @@ E   E   1   2   E   E
 E   E   E   E   E   EB  
 ----------
 TURN 1 
-E   E   E   E   E   E   
-E   EA  1   2   E   E   
+E   EA  E   E   E   E   
+E   E   1   2   E   E   
+E   E   E   E   E   EB  
+----------
+TURN 2 
+E   EA  E   E   E   E   
+E   E   1   2   E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 2 
 E   E   E   E   E   E   
-E   EA  1   2   E   E   
-E   E   E   E   E   EB  
-----------
-TURN 2 
-E   E   EA  E   E   E   
-E   E   1   2   E   E   
-E   E   E   E   E   EB  
-----------
-TURN 3 
-E   E   EA  E   E   E   
-E   E   1   2   E   E   
+E   E   EA  2   E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 3 
 E   E   E   E   E   E   
-E   EA  1   2   E   E   
+E   E   EA  2   E   E   
+E   E   E   E   E   EB  
+----------
+TURN 3 
+E   E   E   E   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 4 
 E   E   E   E   E   E   
-E   EA  1   2   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 4 
-E   E   EA  E   E   E   
-E   E   1   2   E   E   
-E   E   E   E   E   EB  
-----------
-TURN 5 
-E   E   EA  E   E   E   
-E   E   1   2   E   E   
+E   E   E   E   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 5 
 E   E   E   E   E   E   
-E   EA  1   2   E   E   
+E   E   E   EA  E   E   
+E   E   E   E   E   EB  
+----------
+TURN 5 
+E   E   E   E   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 6 
 E   E   E   E   E   E   
-E   EA  1   2   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 6 
-E   E   EA  E   E   E   
-E   E   1   2   E   E   
-E   E   E   E   E   EB  
-----------
-TURN 7 
-E   E   EA  E   E   E   
-E   E   1   2   E   E   
+E   E   E   E   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 7 
 E   E   E   E   E   E   
-E   EA  1   2   E   E   
+E   E   E   EA  E   E   
+E   E   E   E   E   EB  
+----------
+TURN 7 
+E   E   E   E   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 8 
 E   E   E   E   E   E   
-E   EA  1   2   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 8 
-E   E   EA  E   E   E   
-E   E   1   2   E   E   
-E   E   E   E   E   EB  
-----------
-TURN 9 
-E   E   EA  E   E   E   
-E   E   1   2   E   E   
+E   E   E   E   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 9 
 E   E   E   E   E   E   
-E   EA  1   2   E   E   
+E   E   E   EA  E   E   
+E   E   E   E   E   EB  
+----------
+TURN 9 
+E   E   E   E   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 10 
 E   E   E   E   E   E   
-E   EA  1   2   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------
 TURN 10 
-E   E   EA  E   E   E   
-E   E   1   2   E   E   
+E   E   E   E   E   E   
+E   E   E   EA  E   E   
 E   E   E   E   E   EB  
 ----------

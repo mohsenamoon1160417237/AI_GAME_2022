@@ -351,6 +351,6 @@ class MiniMax(ModelBasedPolicy):
         print(scores)
         next_state = scores[1][0]
         next_action = self.get_action_from_state(next_state)
-
         return self.perform_action(next_action)
         # return Action.UP
+        
